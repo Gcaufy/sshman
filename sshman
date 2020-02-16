@@ -3,7 +3,7 @@
 # Author   : Gcaufy
 # Date     : 2020/02/16
 
-FZF_COMMAND=fzfz
+FZF_COMMAND=fzf
 UNAME=$(uname)
 
 if [[ $UNAME == "Darwin" ]]; then
