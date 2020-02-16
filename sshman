@@ -1,0 +1,252 @@
+#!/bin/bash
+
+# Author   : Gcaufy
+# Date     : 2020/02/16
+
+FZF_COMMAND=fzfz
+UNAME=$(uname)
+
+if [[ $UNAME == "Darwin" ]]; then
+  DIR=$(dirname $(readlink $0))
+else
+  DIR=$(dirname $(readlink -f $0))
+fi
+
+# Include lib files
+for file in $(find "$DIR/lib" -name "*.sh"); do source "$file"; done
+
+DB_FILE="$DIR/servers.db"
+
+SERVER_CONFIGS=()
+# Server config length
+SERVER_CONFIG_LENGTH=${#SERVER_CONFIGS[*]}
+
+# Table schema
+COL_INDEX_ID=0
+COL_INDEX_NAME=1
+COL_INDEX_USER=2
+COL_INDEX_HOST=3
+COL_INDEX_PORT=4
+COL_INDEX_TYPE=5
+COL_INDEX_PASSCODE=6
+COL_INDEX_FREQUENCY=7
+COLUMNS=( "NAME" "USER" "HOST" "PORT" "TYPE" "PASSCODE", "FREQUENCY" )
+
+# Init
+function init () {
+  # Init table with columns
+  table_init $DB_FILE "${COLUMNS[@]}"
+
+  while read line
+  do
+    if [ ${line:0:1} != '#' ]; then
+      SERVER_CONFIGS+=("$line")
+    fi
+  done <<< "$(row_select | awk '{print $NF,$0}' | sort -nr | cut -f2- -d' ')" 
+
+  SERVER_CONFIG_LENGTH=${#SERVER_CONFIGS[*]}
+}
+
+# Validate server sequence number
+# It's a number and >=1 && <= length
+# Return boolean
+function validate_choose () {
+  local _choose=$1
+  echo $(numberin $_choose "1" $SERVER_CONFIG_LENGTH)
+}
+
+function validate_seq () {
+  local _seq=$1
+  echo $(numberin $_seq "0" $(($SERVER_CONFIG_LENGTH - 1)))
+}
+
+# Print list
+function list () {
+  local _item=""
+  (
+    printf 'SEQ NO\tSERVER NAME\tSSH HOST\tFREQUENCY\n'
+    for ((i=0;i<${SERVER_CONFIG_LENGTH};i++));
+      do
+        _item=(${SERVER_CONFIGS[$i]}) #将一维sites字符串赋值到数组
+        _seq=$(($i+1))
+        printf '%s\t%s\t%s\t%s\t%s\n' ${_seq} ${_item[$COL_INDEX_NAME]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]} ${_item[$COL_INDEX_FREQUENCY]}
+      done
+  ) | column -t -s $'\t'
+}
+
+# Choose a server from list
+# If fzf exsit, then use fzf, otherwise manully select a number
+# return empty(CTRL + C) or a server sequence number.
+function choose () {
+  local _type=$1
+  if exists $FZF_COMMAND; then
+    local _wording="[Login] Choose the server>"
+    if [[ $_type == "edit" ]]; then
+      _wording="[Edit] Choose the server>"
+    elif [[ $_type == "delete" ]]; then
+      _wording="[Delete] Choose the server>"
+    fi
+    local _choose=$(list | fzf --no-preview --no-sort --prompt="$_wording" | awk '{print $1}')
+    if ! [[ -z $_choose ]]; then
+      local _seq=$(($_choose - 1))
+      if ! [[ $(validate_seq $_seq) == false ]]; then
+        echo $_seq
+      fi
+    fi
+  else
+    list >&2;
+    echo -e "\n" >&2
+    local _wording="[Login] Choose the server [1 - $SERVER_CONFIG_LENGTH]>"
+    if [[ $_type == "edit" ]]; then
+      _wording="[Edit] Choose the server [1 - $SERVER_CONFIG_LENGTH]>"
+    elif [[ $_type == "delete" ]]; then
+      _wording="[Delete] Choose server [1 - $SERVER_CONFIG_LENGTH]>"
+    fi
+    text_input "$_wording" _choose "1" "The number should be 1 - $SERVER_CONFIG_LENGTH" validate_choose >&2
+    local _seq=$(($_choose - 1))
+    echo "$_seq"
+  fi
+}
+
+# Edit one record
+function edit () {
+  local _seq=$(choose "edit" | xargs echo -n)
+
+  if ! [[ $(validate_seq $_seq) == false ]]; then
+    local _item=(${SERVER_CONFIGS[$_seq]})
+    local _id=${_item[$COL_INDEX_ID]}
+
+    text_input "SSH Host:" _host ${_item[$COL_INDEX_HOST]} 
+    text_input "Login User:" _user ${_item[$COL_INDEX_USER]} 
+    text_input "Server Name:" _name ${_item[$COL_INDEX_NAME]}
+    text_input "Port:" _port ${_item[$COL_INDEX_PORT]}
+
+    local _type=${_item[$COL_INDEX_TYPE]}
+
+    if [[ $_type == "Passcode" ]]; then
+      text_input "Passcode:" _pwd ${_item[$COL_INDEX_PASSCODE]}
+    else
+      text_input "PemKeyFile Path:" _pwd ${_item[$COL_INDEX_PASSCODE]}
+    fi
+
+    local _editrow=( "$_id" "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
+    local _rst=$(row_update "${_editrow[@]}")
+
+    success "Update config successfully"
+  fi
+}
+
+# Add new server config
+function new () {
+  text_input "SSH Host:" _host "127.0.0.1"
+  text_input "Login User:" _user "root"
+  text_input "Server Name:" _name "$_user@$_host"
+  text_input "Port:" _port "22"
+
+  _methods=( 'Passcode' 'PemKeyFile' )
+  list_input "Login Method:" _methods _type
+  if [[ $_type == "Passcode" ]]; then
+    text_input "Passcode:" _pwd "root"
+  else
+    text_input "PemKeyFile Path:" _pwd "~/.ssh/my.pem"
+  fi
+
+  local _newrow=( "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
+  local _newid=$(row_insert "${_newrow[@]}")
+
+  success "Create config successfully"
+}
+
+# delete one record
+function delete () {
+  local _seq=$(choose "delete" | xargs echo -n)
+
+  if ! [[ $(validate_seq $_seq) == false ]]; then
+    local _item=(${SERVER_CONFIGS[$_seq]})
+    echo "Try to delete server [${_item[$COL_INDEX_NAME]}]"
+
+    row_delete "${_item[$COL_INDEX_ID]}"
+    success "Delete config [${_item[$COL_INDEX_NAME]}] successfully"
+  fi
+}
+
+# SSH expert login
+function login(){
+  local _seq=$1
+
+  # Invalid seq no, then choose again
+  if [[ $(validate_seq $_seq) == false ]]; then
+    _seq=$(choose "login" | xargs echo -n)
+    if ! [[ $(validate_seq $_seq) == false ]]; then
+      login $_seq
+    fi
+  else
+    local _item=(${SERVER_CONFIGS[$_seq]})
+
+    echo "Try to login server【${_item[$COL_INDEX_NAME]}】"
+
+    # Update row frequency
+    _item[$COL_INDEX_FREQUENCY]=$((_item[$COL_INDEX_FREQUENCY] + 1))
+    row_update ${_item[@]}
+
+    # Expert command
+    command="
+        expect {
+                \"*assword\" {set timeout 6000; send \"${_item[$COL_INDEX_PASSCODE]}\n\"; exp_continue ; sleep 3; }
+                \"*passphrase\" {set timeout 6000; send \"${_item[$COL_INDEX_PASSCODE]}\r\n\"; exp_continue ; sleep 3; }
+                \"yes/no\" {send \"yes\n\"; exp_continue;}
+                \"$*\" {send \"echo Login Success\n\";}
+                \"Last\" {send \"echo Login Success\n\";}
+                \"Welcome\" {send \"echo Login Success\n\";}
+        }
+       interact
+    ";
+    local _type=${_item[$COL_INDEX_TYPE]}
+    if ! [[ "$_type" == "Passcode" ]]; then
+      expect -c "
+          spawn ssh -p ${_item[$COL_INDEX_PORT]} -i ${_item[$COL_INDEX_PASSCODE]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]}
+          ${command}
+      "
+    else
+      expect -c "
+          spawn ssh -p ${_item[$COL_INDEX_PORT]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]}
+          ${command}
+      "
+    fi
+    echo "Loggout【${_item[$COL_INDEX_NAME]}】"
+  fi
+}
+
+# Main entry
+function main () {
+  # Init table
+  init
+
+  # If there is no servers, then go to add one
+  if [[ $SERVER_CONFIG_LENGTH -le 0 ]] ;then
+    new
+    main $1
+  else
+    # Parse arguments
+    if [ 1 == $# ]; then
+      if [ 'list' == $1 ] || [ '-l' == $1  ]; then
+        list "login"
+      elif [ 'edit' == $1 ] || [ '-e' == $1 ]; then
+        edit 
+      elif [ 'new' == $1 ] || [ '-n' == $1 ]; then
+        new
+      elif [ 'delete' == $1 ] || [ '-d' == $1 ]; then
+        delete
+      else
+        login $1
+      fi
+    else
+      local _seq=$(choose "login" | xargs echo -n)
+      if ! [[ $(validate_seq $_seq) == false ]]; then
+        login $_seq
+      fi
+    fi
+  fi
+}
+
+main $1
