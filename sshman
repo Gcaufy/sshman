@@ -217,6 +217,25 @@ function login(){
   fi
 }
 
+function version () {
+  echo
+  echo "    v1.0.0"
+  echo
+}
+
+# Show help
+function help () {
+  echo "Usage: $(basename $0) { list | edit | new | delete | help }" >&2
+  echo
+  echo "   list    [-l]           Show all server config list"
+  echo "   edit    [-e]           Update your server config"
+  echo "   new     [-n]           Add a new server config in your list"
+  echo "   delete  [-d]           Update your server config"
+  echo "   help    [-h]           Update your server config"
+  echo "   version [-v]           Update your server config"
+  echo
+}
+
 # Main entry
 function main () {
   # Init table
@@ -237,8 +256,16 @@ function main () {
         new
       elif [ 'delete' == $1 ] || [ '-d' == $1 ]; then
         delete
-      else
+      elif [ 'help' == $1 ] || [ '-h' == $1 ]; then
+        help
+      elif [ 'version' == $1 ] || [ '-v' == $1 ]; then
+        version
+      elif [ "$1"x == "x" ]; then
         login $1
+      else 
+        echo 
+        echo "    Error: Unknown option: $1. see '$(basename $0) help' find more help" >&2
+        echo 
       fi
     else
       local _seq=$(choose "login" | xargs echo -n)
