@@ -1,0 +1,40 @@
+{
+  "name": "sshman",
+  "version": "1.0.0",
+  "description": "A shell script to manage all your ssh config",
+  "main": "sshman",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "./node_modules/.bin/verpub publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gcaufy/sshman.git"
+  },
+  "keywords": [
+    "SSH",
+    "fzf",
+    "expect"
+  ],
+  "author": {
+    "name": "Gcaufy"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gcaufy/sshman/issues"
+  },
+  "homepage": "https://github.com/Gcaufy/sshman#readme",
+  "devDependencies": {
+    "verpub": "^0.1.2"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "sshman@1.0.0",
+  "verpub": {
+    "publish": false,
+    "files": [{
+      "file": "sshman",
+      "expected": 1
+    }],
+    "tag": "v{version}"
+  }
+}
