@@ -33,6 +33,10 @@
     "publish": false,
     "files": [
       {
+        "file": "README.md",
+        "expected": 1
+      },
+      {
         "file": "sshman",
         "expected": 1
       }
