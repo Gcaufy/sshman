@@ -15,27 +15,25 @@ $ s help
 ## Install
 
 ### Install Dependences
-1. Install `expect``
-
+1. Install `expect`
 See [here](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html)
 
 2. Install `fzf` (optional)
-
 It's optional, but strongly suggested. If `fzf` is not installed, then you have to do sever selection by typing sequence number.
 See [Installation](https://github.com/junegunn/fzf#installation)
 
-### Install `sshman`
+### Install sshman
 
 #### Using git
 
 ```
-git clone --depth 1 https://github.com/Gcaufy/sshman.git ~/.sshman
+git clone --depth 1 https://github.com/Gcaufy/sshman.git ~/.sshman && \
 ln -s /usr/local/bin/s ~/.sshman/sshman
 ```
 
-### Using curl
+#### Using curl
 ```
-curl https://github.com/Gcaufy/sshman/archive/v1.0.1.tar.gz -o /tmp/sshman.tar.gz
-makedir ~/.sshman && tar zxvf /tmp/sshman.tar.gz --strip-components=1 -C ~/.sshman/
+curl https://github.com/Gcaufy/sshman/archive/v1.0.1.tar.gz -o /tmp/sshman.tar.gz && \
+makedir ~/.sshman && tar zxvf /tmp/sshman.tar.gz --strip-components=1 -C ~/.sshman/ && \
 ln -s /usr/local/bin/s ~/.sshman/sshman
 ```
