@@ -16,10 +16,10 @@ $ s help
 
 ### Install Dependences
 1. Install `expect`
-See [here](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html)
+> See [here](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html)
 
 2. Install `fzf` (optional)
-It's optional, but strongly suggested. If `fzf` is not installed, then you have to do sever selection by typing sequence number.
+> It's optional, but strongly suggested. If `fzf` is not installed, then you have to do sever selection by typing sequence number.
 See [Installation](https://github.com/junegunn/fzf#installation)
 
 ### Install sshman
