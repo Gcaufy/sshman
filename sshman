@@ -219,7 +219,7 @@ function login(){
 
 function version () {
   echo
-  echo "    v1.0.0"
+  echo "    v1.0.1"
   echo
 }
 

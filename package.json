@@ -1,6 +1,6 @@
 {
   "name": "sshman",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A shell script to manage all your ssh config",
   "main": "sshman",
   "scripts": {
@@ -28,13 +28,16 @@
     "verpub": "^0.1.2"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "sshman@1.0.0",
+  "_id": "sshman@1.0.1",
   "verpub": {
     "publish": false,
-    "files": [{
-      "file": "sshman",
-      "expected": 1
-    }],
+    "files": [
+      {
+        "file": "sshman",
+        "expected": 1
+      }
+    ],
     "tag": "v{version}"
-  }
+  },
+  "_commitid": "ae0c049"
 }
