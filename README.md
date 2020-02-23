@@ -4,6 +4,12 @@ A shell script to manage all of your SSH config. Works nicely with `fzf`.
 
 ![sshman](https://user-images.githubusercontent.com/2182004/75115010-f7755880-5695-11ea-9850-d135117bb885.gif)
 
+## Features
+
+ * Manage SSH config interactively.
+ * Suppor fuzzy filter by using `fzf`.
+ * Sort by your SSH login frequency.
+ * Pure bash scripts.
 
 ## Dependencies
  * [expect](https://en.wikipedia.org/wiki/Expect)
