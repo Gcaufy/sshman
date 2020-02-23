@@ -2,7 +2,8 @@
 
 A shell script to manage all of your SSH config. Works nicely with `fzf`.
 
-![render1582444689643](https://user-images.githubusercontent.com/2182004/75106299-ef95c400-5655-11ea-9209-75c35707430f.gif)
+![sshman](https://user-images.githubusercontent.com/2182004/75115010-f7755880-5695-11ea-9850-d135117bb885.gif)
+
 
 ## Dependencies
  * [expect](https://en.wikipedia.org/wiki/Expect)
