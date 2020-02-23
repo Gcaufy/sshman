@@ -230,9 +230,9 @@ function help () {
   echo "   list    [-l]           Show all server config list"
   echo "   edit    [-e]           Update your server config"
   echo "   new     [-n]           Add a new server config in your list"
-  echo "   delete  [-d]           Update your server config"
-  echo "   help    [-h]           Update your server config"
-  echo "   version [-v]           Update your server config"
+  echo "   delete  [-d]           Delete one of your server config"
+  echo "   help    [-h]           Show help"
+  echo "   version [-v]           Show version"
   echo
 }
 
