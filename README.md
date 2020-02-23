@@ -1,10 +1,10 @@
 # SSH Man
 
-A shell script to manage all your SSH config. Works nicely with `fzf`.
+A shell script to manage all of your SSH config. Works nicely with `fzf`.
 
 ![render1582444689643](https://user-images.githubusercontent.com/2182004/75106299-ef95c400-5655-11ea-9209-75c35707430f.gif)
 
-## Dependences
+## Dependencies
  * [expect](https://en.wikipedia.org/wiki/Expect)
  * [fzf](https://github.com/junegunn/fzf) *optional*
 
@@ -18,7 +18,7 @@ $ s help
 
 ### Install Dependencies
 1. Install `expect`
-> See [here](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html)
+> See [here](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html).
 
 2. Install `fzf` (optional)
 > It's optional, but strongly suggested. If `fzf` is not installed, then you have to select a server by typing its sequence number.
