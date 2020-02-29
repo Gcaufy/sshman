@@ -45,16 +45,16 @@ COL_INDEX_PORT=4
 COL_INDEX_TYPE=5
 COL_INDEX_PASSCODE=6
 COL_INDEX_FREQUENCY=7
-COLUMNS=( "NAME" "USER" "HOST" "PORT" "TYPE" "PASSCODE", "FREQUENCY" )
+COLUMNS=( "NAME" "USER" "HOST" "PORT" "TYPE" "PASSCODE" "FREQUENCY" )
 
 # Init
 function init () {
   # Init table with columns
-  table_init $DB_FILE "${COLUMNS[@]}"
+  table_init "$DB_FILE" "${COLUMNS[@]}"
 
-  while read line
+  while read -r line
   do
-    if [ ${line:0:1} != '#' ]; then
+    if [ "${line:0:1}" != "#" ]; then
       SERVER_CONFIGS+=("$line")
     fi
   done <<< "$(row_select | awk '{print $NF,$0}' | sort -nr | cut -f2- -d' ')" 
@@ -67,7 +67,7 @@ function init () {
 # Return boolean
 function validate_choose () {
   local _choose=$1
-  echo $(numberin $_choose "1" $SERVER_CONFIG_LENGTH)
+  echo $(numberin "$_choose" 1 $SERVER_CONFIG_LENGTH)
 }
 
 function validate_seq () {
@@ -263,20 +263,20 @@ function main () {
   else
     # Parse arguments
     if [ 1 == $# ]; then
-      if [ 'list' == $1 ] || [ '-l' == $1  ]; then
+      if [ 'list' == "$1" ] || [ '-l' == "$1" ]; then
         list "login"
-      elif [ 'edit' == $1 ] || [ '-e' == $1 ]; then
+      elif [ 'edit' == "$1" ] || [ '-e' == "$1" ]; then
         edit 
-      elif [ 'new' == $1 ] || [ '-n' == $1 ]; then
+      elif [ 'new' == "$1" ] || [ '-n' == "$1" ]; then
         new
-      elif [ 'delete' == $1 ] || [ '-d' == $1 ]; then
+      elif [ 'delete' == "$1" ] || [ '-d' == "$1" ]; then
         delete
-      elif [ 'help' == $1 ] || [ '-h' == $1 ]; then
+      elif [ 'help' == "$1" ] || [ '-h' == "$1" ]; then
         help
-      elif [ 'version' == $1 ] || [ '-v' == $1 ]; then
+      elif [ 'version' == "$1" ] || [ '-v' == "$1" ]; then
         version
       elif [ "$1"x == "x" ]; then
-        login $1
+        login "$1"
       else 
         echo 
         echo "    Error: Unknown option: $1. see '$(basename $0) help' find more help" >&2
@@ -285,10 +285,10 @@ function main () {
     else
       local _seq=$(choose "login" | xargs echo -n)
       if ! [[ $(validate_seq $_seq) == false ]]; then
-        login $_seq
+        login "$_seq"
       fi
     fi
   fi
 }
 
-main $1
+main "$1"
