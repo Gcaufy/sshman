@@ -3,14 +3,29 @@
 # Author   : Gcaufy
 # Date     : 2020/02/16
 
-FZF_COMMAND=fzf
-UNAME=$(uname)
+set -e
 
-if [[ $UNAME == "Darwin" ]]; then
-  DIR=$(dirname $(readlink $0))
-else
-  DIR=$(dirname $(readlink -f $0))
-fi
+FZF_COMMAND=fzf
+
+function resolve_link() {
+  $(type -p greadlink readlink | head -1) "$1"
+}
+
+function abs_dirname() {
+  local cwd="$(pwd)"
+  local path="$1"
+
+  while [ -n "$path" ]; do
+    cd "${path%/*}"
+    local name="${path##*/}"
+    path="$(resolve_link "$name" || true)"
+  done
+
+  pwd
+  cd "$cwd"
+}
+
+DIR="$(abs_dirname "$0")"
 
 # Include lib files
 for file in $(find "$DIR/lib" -name "*.sh"); do source "$file"; done
