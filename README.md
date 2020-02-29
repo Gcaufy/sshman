@@ -48,3 +48,26 @@ curl https://github.com/Gcaufy/sshman/archive/v1.0.1.tar.gz -o /tmp/sshman.tar.g
 makedir ~/.sshman && tar zxvf /tmp/sshman.tar.gz --strip-components=1 -C ~/.sshman/ && \
 ln -s /usr/local/bin/s ~/.sshman/sshman
 ```
+
+### Development
+
+#### Lint
+
+After installed [shellcheck](https://github.com/koalaman/shellcheck), then run the following commands for code lint.
+
+```
+$ make lint
+```
+
+#### Test
+
+After installed [bats](https://github.com/sstephenson/bats), then run the following commands to run uint test.
+
+```
+$ make test
+```
+
+## License
+
+The MIT License (MIT)
+Copyright (c) 2020-2021 Gcaufy

@@ -49,3 +49,24 @@ makedir ~/.sshman && tar zxvf /tmp/sshman.tar.gz --strip-components=1 -C ~/.sshm
 ln -s /usr/local/bin/s ~/.sshman/sshman
 ```
 
+### 开发说明
+
+#### Lint
+
+在安装 [shellcheck](https://github.com/koalaman/shellcheck) 后，使用以下命令运行 lint 功能。
+
+```
+$ make lint
+```
+
+#### Test
+在安装 [bats](https://github.com/sstephenson/bats) 后，使用以下命令运行单元测试用例。
+
+```
+$ make test
+```
+
+## License
+
+The MIT License (MIT)
+Copyright (c) 2020-2021 Gcaufy
