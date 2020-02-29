@@ -28,7 +28,7 @@ function abs_dirname() {
 DIR="$(abs_dirname "$0")"
 
 # Include lib files
-for file in $(find "$DIR/lib" -name "*.sh"); do source "$file"; done
+for file in $(find "$DIR/lib" -name "*.bash"); do source "$file"; done
 
 DB_FILE="$DIR/servers.db"
 

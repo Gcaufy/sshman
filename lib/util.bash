@@ -4,22 +4,22 @@ log() {
     printf '\033[0;34m%s\033[0m\n' "${1}"
 }
 info() {
-    printf "\e[34m[I]\e[0m ${1}\n"
+    printf "\e[34m[I]\e[0m %s\n" "${1}"
 }
 error() {
-    printf "\e[31m[✘]\e[0m ${1}\n"
+    printf "\e[31m[✘]\e[0m %s\n" "${1}"
 }
 success() {
-    printf "\e[32m[✔]\e[0m ${1}\n"
+    printf "\e[32m[✔]\e[0m %s\n" "${1}"
 }
 link() {
-    if [ -L ${2} ]; then
-        unlink ${2}
-    elif [ -e ${2}  ]; then
+    if [ -L "${2}" ]; then
+        unlink "${2}"
+    elif [ -e "${2}"  ]; then
         info "Existing ${2} found, Moving ${2} -> ${2}.previous"
-        mv ${2} ${2}.previous
+        mv "${2}" "${2}".previous
     fi
-    ln -s ${1} ${2}
+    ln -s "${1}" "${2}"
     success "${2}   -> ${1}"
 }
 

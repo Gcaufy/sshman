@@ -4,7 +4,8 @@
   "description": "A shell script to manage all your ssh config",
   "main": "sshman",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "shellcheck ./sshman && shellcheck ./lib/**/*.sh",
+    "test": "find . | grep .bats$ | xargs bats",
     "release": "./node_modules/.bin/verpub publish"
   },
   "repository": {
