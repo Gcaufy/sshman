@@ -8,6 +8,10 @@ setup() {
   table_init "/tmp/bash_table.db" "${_columns[@]}"
 }
 
+teardown() {
+  rm -rf /tmp/bash_table.db || true
+}
+
 @test "lib/table/table.bash table_init" {
   [ "$(cat /tmp/bash_table.db)" = "$(cat ./lib/table/fixtures/table_init.db)" ]
 }
