@@ -16,3 +16,8 @@ jobs:
         [[ "$(uname)" == "Linux" ]] && sudo apt-get install bats || echo "Not Linux"
     - name: Run test
       run: make test
+    - name: Test Install scripts
+      run: |
+        curl -o- https://raw.githubusercontent.com/Gcaufy/sshman/master/install | bash
+    - name: Test Uninstall scripts
+      run: ./uninstall
