@@ -40,10 +40,6 @@
       {
         "file": "version.txt",
         "expected": 1
-      },
-      {
-        "file": "README.md",
-        "expected": 1
       }
     ],
     "tag": "v{version}"
