@@ -10,9 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install bats
-      run: |
-        git clone https://github.com/sstephenson/bats.git ~/.bats
-        cd ~/.bats
-        ./install.sh /usr/local
+      run: apt-get install bats
     - name: Run test
       run: make test
