@@ -34,11 +34,15 @@
     "publish": false,
     "files": [
       {
-        "file": "README.md",
+        "file": "install",
         "expected": 1
       },
       {
-        "file": "sshman",
+        "file": "version.txt",
+        "expected": 1
+      },
+      {
+        "file": "README.md",
         "expected": 1
       }
     ],

@@ -233,8 +233,10 @@ function login(){
 }
 
 function version () {
+  local _ver
+  _ver="$(cat $DIR/version.txt)"
   echo
-  echo "    v1.0.1"
+  echo "    v$_ver"
   echo
 }
 
