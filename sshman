@@ -52,6 +52,8 @@ function init () {
   # Init table with columns
   table_init "$DB_FILE" "${COLUMNS[@]}"
 
+  SERVER_CONFIGS=()
+
   while read -r line
   do
     if [ "${line:0:1}" != "#" ]; then
@@ -101,7 +103,8 @@ function choose () {
     elif [[ $_type == "delete" ]]; then
       _wording="[Delete] Choose the server>"
     fi
-    local _choose=$(list | fzf --no-preview --no-sort --prompt="$_wording" | awk '{print $1}')
+    echo "  $(list | head -1)" >&2;
+    local _choose=$(list | grep -v FREQUENCY | fzf --no-preview --no-sort --prompt="$_wording" | awk '{print $1}')
     if ! [[ -z $_choose ]]; then
       local _seq=$(($_choose - 1))
       if ! [[ $(validate_seq $_seq) == false ]]; then
@@ -257,11 +260,11 @@ function help () {
 function main () {
   # Init table
   init
-
-  # If there is no servers, then go to add one
-  if [[ $SERVER_CONFIG_LENGTH -le 0 ]] ;then
+  local _rowlen
+  _rowlen=$(row_length)
+  if [[ "$_rowlen" == "0" ]]; then
     new
-    main $1
+    main "$1"
   else
     # Parse arguments
     if [ 1 == $# ]; then
@@ -278,7 +281,12 @@ function main () {
       elif [ 'version' == "$1" ] || [ '-v' == "$1" ]; then
         version
       elif [ "$1"x == "x" ]; then
-        login "$1"
+        if [[ "$_rowlen" == "1" ]]; then
+          echo "Automaticlly login to the only one SSH config. run 's new' to add more."
+          login 0
+        else
+          login
+        fi
       else 
         echo 
         echo "    Error: Unknown option: $1. see '$(basename $0) help' find more help" >&2

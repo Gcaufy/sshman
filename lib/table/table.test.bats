@@ -33,6 +33,20 @@ teardown() {
   [ "$(cat /tmp/bash_table.db)" = "$expect" ]
 }
 
+@test "lib/table/table.bash row_length" {
+
+  _len=$(row_length)
+
+  [ "$_len" = "0" ];
+
+  _row=( 'Jim'  'Green' '20' )
+  _id=$(row_insert ${_row[@]})
+
+  _len=$(row_length)
+
+  [ "$_len" = "1" ];
+}
+
 @test "lib/table/table.bash row_update" {
 
   local _row=( 'Jim'  'White' '21' )

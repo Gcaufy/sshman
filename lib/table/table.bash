@@ -61,6 +61,12 @@ function table_check_init () {
   fi
 }
 
+function row_length () {
+  local _len
+  _len=$(grep -v "^#" "$dbpath" | grep '^ID:' -c)
+  echo "$_len"
+}
+
 function row_insert () {
   table_check_init
 
@@ -85,8 +91,6 @@ function row_update () {
   fi
   local _rowstr=$(printf "$COL_SEP%s" "${_row[@]}")
   _rowstr=$(echo $(printf "%s" "$_rowstr") | column -t -s $"$COL_SEP")
-  echo '----------------_UPDATE'
-  echo "$dbpath"x
 
   sedi "s/^$_id.*/$_rowstr/" "$dbpath"
   table_refresh
