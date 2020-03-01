@@ -6,6 +6,20 @@
 dbpath=""
 COL_SEP="[}"
 
+# Get md5 sum compatibly
+function get_md5 () {
+  OS="$(uname)"
+  case $OS in
+    'Linux')
+      echo "$1" | md5sum | cut -c1-32
+      ;;
+    'Darwin') 
+      echo "$1" | md5 -q
+      ;;
+    *) ;;
+  esac
+}
+
 function table_refresh () {
   cat "$dbpath" | grep "^#ID:" | cat > "$dbpath.tmp.deleted"
   cat "$dbpath" | grep "^#" | grep -v "^#ID:" | cat > "$dbpath.tmp.comment"
@@ -45,7 +59,7 @@ function row_insert () {
     printf 'Error: %s\n' 'Table insert empty row' >&2
   fi
   local _rowstr=$(printf "$COL_SEP%s" "${_row[@]}")
-  local _tid="ID:"$(md5 -q -s "$_rowstr$RANDOM" | cut -c1-10)
+  local _tid="ID:"$(get_md5 "$_rowstr$RANDOM" | cut -c1-10)
 
   echo $(printf "%s$COL_SEP%s" "$_tid" "$_rowstr") | column -t -s $"$COL_SEP" >> $dbpath
   table_refresh

@@ -12,6 +12,10 @@ teardown() {
   rm -rf /tmp/bash_table.db || true
 }
 
+@test "lib/table/table.bash get_md5" {
+  [ "$(get_md5 123)" = "ba1f2511fc30423bdbb183fe33f3dd0f" ]
+}
+
 @test "lib/table/table.bash table_init" {
   [ "$(cat /tmp/bash_table.db)" = "$(cat ./lib/table/fixtures/table_init.db)" ]
 }
