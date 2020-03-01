@@ -42,7 +42,7 @@ function table_refresh () {
 
 function table_init () {
   dbpath=$1
-  _columns=$2
+  IFS=',' read -r -a _columns  <<< "$2"
 
   if [[ ! -f "$dbpath" ]]; then
     touch "$dbpath"

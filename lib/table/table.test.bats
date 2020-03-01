@@ -4,8 +4,11 @@ load table
 
 setup() {
   rm -rf /tmp/bash_table.db || true
-  local _columns=( "FirstName"  "LastName" "Age" )
-  table_init "/tmp/bash_table.db" "${_columns[@]}"
+  local _arr=( "FirstName"  "LastName" "Age" )
+
+  _columns=$(printf ",%s" "${_arr[@]}")
+
+  table_init "/tmp/bash_table.db" "${_columns:1}"
 }
 
 teardown() {

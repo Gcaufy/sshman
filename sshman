@@ -50,7 +50,9 @@ COLUMNS=( "NAME" "USER" "HOST" "PORT" "TYPE" "PASSCODE" "FREQUENCY" )
 # Init
 function init () {
   # Init table with columns
-  table_init "$DB_FILE" "${COLUMNS[@]}"
+  local _columns
+  _columns=$(printf ",%s" "${COLUMNS[@]}")
+  table_init "$DB_FILE" "${_columns:1}"
 
   SERVER_CONFIGS=()
 
