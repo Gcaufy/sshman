@@ -11,6 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install bats
-      run: sudo apt-get install bats
+      run: |
+        [[ "$(uname)" == "Darwin" ]] && sudo brew install bats || sudo apt-get install bats
     - name: Run test
       run: make test
