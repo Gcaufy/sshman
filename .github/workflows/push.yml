@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install bats
-      run: apt-get install bats
+      run: sudo apt-get install bats
     - name: Run test
       run: make test
