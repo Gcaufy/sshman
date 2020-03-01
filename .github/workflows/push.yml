@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install bats
       run: |
-        [[ "$(uname)" == "Darwin" ]] && echo "bats installed in macos by default" 
-        [[ "$(uname)" == "Linux" ]] && sudo apt-get install bats
+        [[ "$(uname)" == "Darwin" ]] && echo "bats installed in macos by default" || echo "Not MacOS"
+        [[ "$(uname)" == "Linux" ]] && sudo apt-get install bats || echo "Not Linux"
     - name: Run test
       run: make test
