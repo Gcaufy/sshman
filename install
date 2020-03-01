@@ -21,14 +21,22 @@ if [[ ${#SHELLS} -lt 3 ]]; then
 fi
 
 function git_install() {
-  git clone https://github.com/Gcaufy/sshman.git "${PREFIX}"
-  cd "${PREFIX}"
+  if [[ -d "${PREFIX}" ]]; then
+    cd "${PREFIX}"
+    git pull
+  else
+    git clone https://github.com/Gcaufy/sshman.git "${PREFIX}"
+    cd "${PREFIX}"
+  fi
   git checkout v${VERSION}
 }
 
 function tar_install() {
+  local _url
+  _url="https://github.com/Gcaufy/sshman/archive/v${VERSION}.tar.gz"
+  echo -n "Downloading package from: $_url"
   mkdir -p "${PREFIX}"
-  curl -SL https://github.com/Gcaufy/sshman/archive/v${VERSION}.tar.gz | tar xvz - --strip-components=1 -C "${PREFIX}"
+  curl -sSL $_url | tar xz - --strip-components=1 -C "${PREFIX}"
 }
 
 function append_line() {
@@ -66,12 +74,16 @@ function append_line() {
 }
 
 function install() {
-  if command -v "git" > /dev/null; then
+  if ! command -v "git" > /dev/null; then
     tar_install
   else
     git_install
   fi
+  echo -n "Update alias"
   update_alias
+  s -h
+
+  echo -e "Install successfully. current version is: $(s -v) \n"
 }
 
 function update_alias() {
