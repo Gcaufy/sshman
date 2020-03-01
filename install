@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Author   : Gcaufy
+# Date     : 2020/02/16
+
+set -e
+
+VERSION="1.0.1"
+SHELLS="bash zsh fish"
+PREFIX="${HOME}/.sshman"
+
+for s in $SHELLS; do
+  if ! command -v "$s" > /dev/null; then
+    SHELLS=${SHELLS/$s/}
+  fi
+done
+
+if [[ ${#SHELLS} -lt 3 ]]; then
+  echo "No shell configuration to be updated."
+  exit 0
+fi
+
+function git_install() {
+  git clone https://github.com/Gcaufy/sshman.git "${PREFIX}"
+  cd "${PREFIX}"
+  git checkout v${VERSION}
+}
+
+function tar_install() {
+  mkdir -p "${PREFIX}"
+  curl -SL https://github.com/Gcaufy/sshman/archive/v${VERSION}.tar.gz | tar xvz - --strip-components=1 -C "${PREFIX}"
+}
+
+function append_line() {
+  set -e
+
+  local update line file pat lno
+  update="$1"
+  line="$2"
+  file="$3"
+  pat="${4:-}"
+  lno=""
+
+  echo "Update $file:"
+  echo "  - $line"
+  if [ -f "$file" ]; then
+    if [ $# -lt 4 ]; then
+      lno=$(\grep -nF "$line" "$file" | sed 's/:.*//' | tr '\n' ' ')
+    else
+      lno=$(\grep -nF "$pat" "$file" | sed 's/:.*//' | tr '\n' ' ')
+    fi
+  fi
+  if [ -n "$lno" ]; then
+    echo "    - Already exists: line #$lno"
+  else
+    if [ "$update" -eq 1 ]; then
+      [ -f "$file" ] && echo >> "$file"
+      echo "$line" >> "$file"
+      echo "    + Added"
+    else
+      echo "    ~ Skipped"
+    fi
+  fi
+  echo
+  set +e
+}
+
+function install() {
+  if command -v "git" > /dev/null; then
+    tar_install
+  else
+    git_install
+  fi
+  update_alias
+}
+
+function update_alias() {
+  for shell in $SHELLS; do
+    [[ "$shell" = fish ]] && continue
+    [ "$shell" = zsh ] && dest=${ZDOTDIR:-~}/.zshrc || dest=~/.bashrc
+    append_line 1 "alias s=\"'${PREFIX}/sshman'\"" "${dest}"
+  done
+
+  alias s="'${PREFIX}/sshman'"
+}
+
+install
