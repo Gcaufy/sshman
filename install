@@ -81,9 +81,13 @@ function install() {
   fi
   echo -n "Update alias"
   update_alias
-  s -h
 
-  echo -e "Install successfully. current version is: $(s -v) \n"
+  echo -e "Install successfully. current version is: v$(cat $PREFIX/version.txt) \n"
+  echo -e 'Finished. Restart your shell or reload config file.'
+  [[ "$SHELLS" =~ bash ]] && echo -e '   source ~/.bashrc  # bash'
+  [[ "$SHELLS" =~ zsh ]]  && echo -e "   source ${ZDOTDIR:-~}/.zshrc   # zsh"
+  echo
+  echo
 }
 
 function update_alias() {
@@ -93,8 +97,6 @@ function update_alias() {
     append_line 1 "alias s=\"'${PREFIX}/sshman'\"" "${dest}"
     source "${dest}"
   done
-
-  alias s="'${PREFIX}/sshman'"
 }
 
 install
