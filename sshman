@@ -67,12 +67,12 @@ function init () {
 # Return boolean
 function validate_choose () {
   local _choose=$1
-  echo $(numberin "$_choose" 1 $SERVER_CONFIG_LENGTH)
+  numberin "$_choose" 1 "$SERVER_CONFIG_LENGTH"
 }
 
 function validate_seq () {
   local _seq=$1
-  echo $(numberin $_seq "0" $(($SERVER_CONFIG_LENGTH - 1)))
+  numberin "$_seq" "0" "$(($SERVER_CONFIG_LENGTH - 1))"
 }
 
 # Print list
