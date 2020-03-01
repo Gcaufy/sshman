@@ -44,7 +44,7 @@ ln -s /usr/local/bin/s ~/.sshman/sshman
 
 #### Using curl
 ```shell
-curl https://github.com/Gcaufy/sshman/archive/v1.0.1.tar.gz -o /tmp/sshman.tar.gz && \
+curl https://github.com/Gcaufy/sshman/archive/v1.0.2.tar.gz -o /tmp/sshman.tar.gz && \
 makedir ~/.sshman && tar zxvf /tmp/sshman.tar.gz --strip-components=1 -C ~/.sshman/ && \
 ln -s /usr/local/bin/s ~/.sshman/sshman
 ```
