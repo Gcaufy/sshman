@@ -91,6 +91,7 @@ function update_alias() {
     [[ "$shell" = fish ]] && continue
     [ "$shell" = zsh ] && dest=${ZDOTDIR:-~}/.zshrc || dest=~/.bashrc
     append_line 1 "alias s=\"'${PREFIX}/sshman'\"" "${dest}"
+    source "${dest}"
   done
 
   alias s="'${PREFIX}/sshman'"
