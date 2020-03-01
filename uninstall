@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Author   : Gcaufy
+# Date     : 2020/03/01
+
+set -e
+
+PREFIX="${HOME}/.sshman"
+
+# compatible sed in MacOS and Linux
+function sedi () {
+  OS=$(uname)
+  if [[ "$OS" == "Darwin" ]]; then
+    sed -i '' "$1" "$2"
+  else
+    sed -i "$1" "$2"
+  fi
+}
+
+function remove_alias() {
+
+  local _alias
+  local _rowno
+
+  _alias="alias s=\"'${HOME}/.sshman/sshman'\""
+
+  echo "Remove from $1:"
+
+  _rowno=$(grep -n "$_alias" "$1" | cut -d : -f 1)
+
+  if [[ -z $_rowno ]]; then
+    echo "  - Nothing found"
+  else
+    sedi "${_rowno}d" "$1"
+    echo  "      - Removed"
+  fi
+}
+
+
+function uninstall() {
+  for shell in bash zsh; do
+    remove_alias ~/.${shell}rc 
+  done
+
+  local _db
+
+  _db="${PREFIX}/servers.db"
+
+  if [[ -f "$_db" ]]; then
+    echo -e "\n"
+    echo -e "***********************!!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!! *****************************"
+    echo -e "*****ALL THIS SSH CONFIG REMOVED, MARE SURE YOU RECORD IT, OTHERWISE IT WILL BE GONE FOREVER *****"
+    echo -e "**************************************************************************************************"
+    cat "$_db"
+    echo -e "***********************!!! IMPORTANT !!! IMPORTANT !!! IMPORTANT !!! *****************************"
+  fi
+  rm -rf "${PREFIX}"
+  echo -e "\n"
+  echo -e "  Unstall finished. clean as before."
+}
+
+uninstall
