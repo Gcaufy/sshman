@@ -35,18 +35,8 @@ $ s help
 
 ### 安装 sshman
 
-#### git 安装方式
-
 ```shell
-git clone --depth 1 https://github.com/Gcaufy/sshman.git ~/.sshman && \
-ln -s /usr/local/bin/s ~/.sshman/sshman
-```
-
-#### curl 安装方式
-```shell
-curl https://github.com/Gcaufy/sshman/archive/v1.0.1.tar.gz -o /tmp/sshman.tar.gz && \
-makedir ~/.sshman && tar zxvf /tmp/sshman.tar.gz --strip-components=1 -C ~/.sshman/ && \
-ln -s /usr/local/bin/s ~/.sshman/sshman
+curl -o- https://raw.githubusercontent.com/Gcaufy/sshman/master/install | bash
 ```
 
 ### 开发说明
