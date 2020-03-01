@@ -6,6 +6,14 @@
 dbpath=""
 COL_SEP="[}"
 
+OS="$(uname)"
+
+if [[ "$OS" == "Darwin" ]]; then
+  ISED='-i ""'
+else
+  ISED='-i""'
+fi
+
 # Get md5 sum compatibly
 function get_md5 () {
   OS="$(uname)"
@@ -74,13 +82,13 @@ function row_update () {
     printf 'Error: %s\n' 'Table insert empty row' >&2
   fi
   local _rowstr=$(printf "$COL_SEP%s" "${_row[@]}")
-  _rowstr=$(echo $(printf "%s" $_rowstr) | column -t -s $"$COL_SEP")
-  sed -i '' "s/^$_id.*/$_rowstr/" $dbpath
+  _rowstr=$(echo $(printf "%s" "$_rowstr") | column -t -s $"$COL_SEP")
+  sed "$ISED" "s/^$_id.*/$_rowstr/" "$dbpath"
   table_refresh
 }
 function row_delete () {
   _id=$1
-  sed -i '' "s/^$_id/#$_id/" "$dbpath"
+  sed "$ISED" "s/^$_id/#$_id/" "$dbpath"
   table_refresh
 }
 function row_select () {
