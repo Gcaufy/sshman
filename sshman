@@ -168,7 +168,7 @@ function new () {
   if [[ $_type == "Passcode" ]]; then
     text_input "Passcode:" _pwd "root"
   else
-    text_input "PemKeyFile Path:" _pwd "~/.ssh/my.pem"
+    text_input "PemKeyFile Path:" _pwd "~/.ssh/id_rsa"
   fi
 
   local _newrow=( "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
