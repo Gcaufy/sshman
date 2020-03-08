@@ -212,8 +212,8 @@ function login(){
     # Expert command
     command="
         expect {
-                \"*assword\" {set timeout 6000; send \"${_item[$COL_INDEX_PASSCODE]}\n\"; exp_continue ; sleep 3; }
-                \"*passphrase\" {set timeout 6000; send \"${_item[$COL_INDEX_PASSCODE]}\r\n\"; exp_continue ; sleep 3; }
+                \"*assword\" {set timeout 6000; send \$env(sshpasscode)\r\n; exp_continue ; sleep 3; }
+                \"*passphrase\" {set timeout 6000; send \$env(sshpasscode)\r\n'; exp_continue ; sleep 3; }
                 \"yes/no\" {send \"yes\n\"; exp_continue;}
                 \"$*\" {send \"echo Login Success\n\";}
                 \"Last\" {send \"echo Login Success\n\";}
@@ -221,6 +221,9 @@ function login(){
         }
        interact
     ";
+    # Export it as an environment varible, to avoid $ escape.
+    export sshpasscode=${_item[$COL_INDEX_PASSCODE]}
+
     local _type=${_item[$COL_INDEX_TYPE]}
     if ! [[ "$_type" == "Passcode" ]]; then
       expect -c "
