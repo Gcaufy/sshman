@@ -146,7 +146,7 @@ function edit () {
     if [[ $_type == "Passcode" ]]; then
       text_input "Passcode:" _pwd ${_item[$COL_INDEX_PASSCODE]}
     else
-      text_input "PemKeyFile Path:" _pwd ${_item[$COL_INDEX_PASSCODE]}
+      text_input "Identity Key Path:" _pwd ${_item[$COL_INDEX_PASSCODE]}
     fi
 
     local _editrow=( "$_id" "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
@@ -163,12 +163,12 @@ function new () {
   text_input "Server Name:" _name "$_user@$_host"
   text_input "Port:" _port "22"
 
-  _methods=( 'Passcode' 'PemKeyFile' )
+  _methods=( 'Passcode' 'IdentityKey' )
   list_input "Login Method:" _methods _type
   if [[ $_type == "Passcode" ]]; then
     text_input "Passcode:" _pwd "root"
   else
-    text_input "PemKeyFile Path:" _pwd "~/.ssh/id_rsa"
+    text_input "Identity Key Path:" _pwd "~/.ssh/id_rsa"
   fi
 
   local _newrow=( "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
