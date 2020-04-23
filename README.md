@@ -57,6 +57,10 @@ After installed [bats](https://github.com/sstephenson/bats), then run the follow
 $ make test
 ```
 
+#### Todo List
+
+[ ] scp support 
+
 ## License
 
 The MIT License (MIT)
