@@ -152,7 +152,9 @@ function edit () {
     local _editrow=( "$_id" "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
     local _rst=$(row_update "${_editrow[@]}")
 
+    echo ""
     success "Update config successfully"
+    echo ""
   fi
 }
 
@@ -174,7 +176,9 @@ function new () {
   local _newrow=( "$_name" "$_user" "$_host" "$_port" "$_type" "$_pwd" "0" )
   local _newid=$(row_insert "${_newrow[@]}")
 
+  echo ""
   success "Create config successfully"
+  echo ""
 }
 
 # delete one record
@@ -186,7 +190,9 @@ function delete () {
     echo "Try to delete server [${_item[$COL_INDEX_NAME]}]"
 
     row_delete "${_item[$COL_INDEX_ID]}"
+    echo ""
     success "Delete config [${_item[$COL_INDEX_NAME]}] successfully"
+    echo ""
   fi
 }
 
@@ -238,8 +244,10 @@ function login(){
     fi
     echo ""
     success "Loggout【${_item[$COL_INDEX_NAME]}】"
+    echo ""
   fi
 }
+
 # Upload file or directory to the server
 function upload () {
   local _seq=$1
@@ -308,9 +316,6 @@ function upload () {
                 \"*assword\" {set timeout 6000; send \$env(sshpasscode)\r\n; exp_continue ; sleep 3; }
                 \"*passphrase\" {set timeout 6000; send \$env(sshpasscode)\r\n'; exp_continue ; sleep 3; }
                 \"yes/no\" {send \"yes\n\"; exp_continue;}
-                \"$*\" {send \"echo Login Success\n\";}
-                \"Last\" {send \"echo Login Success\n\";}
-                \"Welcome\" {send \"echo Login Success\n\";}
         }
     ";
     # Export it as an environment varible, to avoid $ escape.
@@ -348,6 +353,71 @@ function upload () {
     fi
     echo ""
     success "Uploaded to 【${_item[$COL_INDEX_NAME]}】"
+    echo ""
+  fi
+}
+# Download file or directory to the server
+function download () {
+  local _seq=$1
+  local _remotepath=$2
+  local _dirflag=""
+
+  if [[ "$_remotepath"x == "x" ]]; then 
+    _templatepath="/tmp/error.log"
+
+    text_input "Remote Path: " _remotepath "$_templatepath"
+
+    echo ""
+  fi
+
+  # Invalid seq no, then choose again
+  if [[ $(validate_seq $_seq) == false ]]; then
+    _seq=$(choose "login" | xargs echo -n)
+    if ! [[ $(validate_seq $_seq) == false ]]; then
+      download $_seq $_remotepath
+    fi
+  else
+
+    if [[ "$_remotepath" == *"/" ]] ; then
+      _dirflag="-r"
+    fi
+
+    local _item=(${SERVER_CONFIGS[$_seq]})
+
+    info "Try to download file(s) to server【${_item[$COL_INDEX_NAME]}】"
+
+    # Update row frequency
+    _item[$COL_INDEX_FREQUENCY]=$((_item[$COL_INDEX_FREQUENCY] + 1))
+    row_update ${_item[@]}
+
+    # Expert command
+    command="
+        expect {
+                \"*assword\" {set timeout 6000; send \$env(sshpasscode)\r\n; exp_continue ; sleep 3; }
+                \"*passphrase\" {set timeout 6000; send \$env(sshpasscode)\r\n'; exp_continue ; sleep 3; }
+                \"yes/no\" {send \"yes\n\"; exp_continue;}
+        }
+    ";
+    # Export it as an environment varible, to avoid $ escape.
+    export sshpasscode=${_item[$COL_INDEX_PASSCODE]}
+
+    local _type=${_item[$COL_INDEX_TYPE]}
+
+    if ! [[ "$_type" == "Passcode" ]]; then
+      expect -c "
+          spawn 
+          scp ${_dirflag} -P ${_item[$COL_INDEX_PORT]} -i ${_item[$COL_INDEX_PASSCODE]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]}:${_remotepath} ./
+          ${command}
+      "
+    else
+      expect -c "
+          spawn scp ${_dirflag} -P ${_item[$COL_INDEX_PORT]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]}:${_remotepath} ./
+          ${command}
+      "
+    fi
+    echo ""
+    success "Downloaded file from 【${_item[$COL_INDEX_NAME]}】"
+    echo ""
   fi
 }
 
@@ -390,12 +460,14 @@ function main () {
         edit 
       elif [ 'new' == "$1" ] || [ '-n' == "$1" ]; then
         new
-      elif [ 'delete' == "$1" ] || [ '-d' == "$1" ]; then
+      elif [ 'delete' == "$1" ] || [ '-r' == "$1" ]; then
         delete
       elif [ 'help' == "$1" ] || [ '-h' == "$1" ]; then
         help
       elif [ 'upload' == "$1" ] || [ '-u' == "$1" ]; then
         upload 
+      elif [ 'download' == "$1" ] || [ '-d' == "$1" ]; then
+        download 
       elif [ 'version' == "$1" ] || [ '-v' == "$1" ]; then
         version
       elif [ "$1"x == "x" ]; then
