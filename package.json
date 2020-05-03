@@ -38,6 +38,14 @@
         "expected": 1
       },
       {
+        "file": "README.md",
+        "expected": 1
+      },
+      {
+        "file": "README-zh.md",
+        "expected": 1
+      },
+      {
         "file": "version.txt",
         "expected": 1
       }

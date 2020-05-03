@@ -1,4 +1,4 @@
-# SSH Man ![CI](https://github.com/Gcaufy/sshman/workflows/CI/badge.svg?branch=master)
+# SSH Man ![CI](https://github.com/Gcaufy/sshman/workflows/CI/badge.svg?branch=master) ![Version](https://img.shields.io/static/v1?label=VER&message=v1.0.5&color=blue)
 
 [中文](README-zh.md)
 
