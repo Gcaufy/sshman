@@ -1,16 +1,29 @@
 #!/bin/bash
 
+cyan="$(tput setaf 6)"
+normal="$(tput sgr0)"
+
 log() {
     printf '\033[0;34m%s\033[0m\n' "${1}"
 }
 info() {
-    printf "\e[34m[⊚]\e[0m %s\n" "${1}"
+    printf "\e[34m[⊚] %s\e[0m\n" "${1}"
 }
 error() {
-    printf "\e[31m[✘]\e[0m %s\n" "${1}"
+    printf "\e[31m[✘] %s\e[0m\n" "${1}"
+}
+warn() {
+    printf "\e[93m[♨] %s\e[0m\n" "${1}"
 }
 success() {
-    printf "\e[32m[✔]\e[0m %s\n" "${1}"
+    printf "\e[32m[✔] %s\e[0m\n" "${1}"
+}
+prompt() {
+  local _prompt=$1
+  local _text=$2
+  local _read_prompt_start=$'\e[32m?\e[39m\e[1m'
+  local _read_prompt_end=$'\e[22m'
+  echo "$_read_prompt_start $_prompt ${cyan}${_text}${normal} $_read_prompt_end"
 }
 link() {
     if [ -L "${2}" ]; then

@@ -5,7 +5,12 @@
 
 set -e
 
-FZF_COMMAND=fzf
+if [ -z "$FZF_COMMAND" ]; then FZF_COMMAND="fzf"; fi
+if [ -z "$FD_COMMAND" ]; then FD_COMMAND="fd"; fi
+
+if [ -z "$FZF_SSHMAN_OPTION" ]; then FZF_SSHMAN_OPTION="--no-preview --no-sort"; fi
+if [ -z "$FD_SSHMAN_OPTION" ]; then FD_SSHMAN_OPTION=""; fi
+
 
 function resolve_link() {
   $(type -p greadlink readlink | head -1) "$1"
@@ -46,6 +51,7 @@ COL_INDEX_TYPE=5
 COL_INDEX_PASSCODE=6
 COL_INDEX_FREQUENCY=7
 COLUMNS=( "NAME" "USER" "HOST" "PORT" "TYPE" "PASSCODE" "FREQUENCY" )
+
 
 # Init
 function init () {
@@ -105,8 +111,8 @@ function choose () {
     elif [[ $_type == "delete" ]]; then
       _wording="[Delete] Choose the server>"
     fi
-    echo "  $(list | head -1)" >&2;
-    local _choose=$(list | grep -v FREQUENCY | fzf --no-preview --no-sort --prompt="$_wording" | awk '{print $1}')
+    echo -n "  $(list | head -1)" >&2;
+    local _choose=$(list | grep -v FREQUENCY | $FZF_COMMAND $FZF_SSHMAN_OPTION --prompt="$_wording" | awk '{print $1}')
     if ! [[ -z $_choose ]]; then
       local _seq=$(($_choose - 1))
       if ! [[ $(validate_seq $_seq) == false ]]; then
@@ -187,7 +193,9 @@ function delete () {
 
   if ! [[ $(validate_seq $_seq) == false ]]; then
     local _item=(${SERVER_CONFIGS[$_seq]})
-    echo "Try to delete server [${_item[$COL_INDEX_NAME]}]"
+    echo ""
+    prompt "Delete Server: " "${_item[$COL_INDEX_NAME]}"
+    echo ""
 
     row_delete "${_item[$COL_INDEX_ID]}"
     echo ""
@@ -209,7 +217,9 @@ function login(){
   else
     local _item=(${SERVER_CONFIGS[$_seq]})
 
-    echo "Try to login server【${_item[$COL_INDEX_NAME]}】"
+    echo ""
+    prompt "Login Server: " "${_item[$COL_INDEX_NAME]}"
+    echo ""
 
     # Update row frequency
     _item[$COL_INDEX_FREQUENCY]=$((_item[$COL_INDEX_FREQUENCY] + 1))
@@ -255,20 +265,31 @@ function upload () {
   local _remotepath=$3
   local _dirflag=""
 
-  if [[ "$_localpath"x == "x" ]]; then 
-    _localpath=$(fd | fzf --no-preview --no-sort --prompt="Select a file or Directory to upload > ")
+  if ! exists $FZF_COMMAND; then
+    error "Upload requires fzf to be installed. Check this link to install fzf: https://github.com/junegunn/fzf#installation"
+    echo ""
+    exit;
+  fi
+
+  if [[ -z $_localpath ]]; then 
+    if exists $FD_COMMAND; then
+      _localpath=$($FD_COMMAND $FD_SSHMAN_OPTION | $FZF_COMMAND $FZF_SSHMAN_OPTION --prompt='Select a file or Directory to upload > ')
+    else 
+      echo ""
+      warn "Strongly suggest to install fd. Check this link to install: https://github.com/sharkdp/fd#installation"
+      echo ""
+      _localpath=$(find . | $FZF_COMMAND $FZF_SSHMAN_OPTION --prompt='Select a file or Directory to upload > ')
+    fi
+    _localpath=$($FD_COMMAND $FD_SSHMAN_OPTION | $FZF_COMMAND $FZF_SSHMAN_OPTION --prompt='Select a file or Directory to upload > ')
 
     local _read_prompt_start=$'\e[32m?\e[39m\e[1m'
     local _read_prompt_end=$'\e[22m'
 
-    cyan="$(tput setaf 6)"
-    normal="$(tput sgr0)"
-
     echo ""
-    echo "$_read_prompt_start "Local Path: " ${cyan}${_localpath}${normal} $_read_prompt_end"
+    prompt "Local Path: " "$_localpath"
   fi
 
-  if [[ "$_remotepath"x == "x" ]]; then 
+  if [[ -z $_remotepath ]]; then 
     _templatepath="/tmp/${_localpath}"
 
     if [[ -d "${_localpath}" ]] ; then
@@ -277,8 +298,6 @@ function upload () {
     fi
 
     text_input "Remote Path: " _remotepath "$_templatepath"
-
-    echo ""
   fi
 
   # Invalid seq no, then choose again
@@ -303,7 +322,8 @@ function upload () {
 
     local _item=(${SERVER_CONFIGS[$_seq]})
 
-    info "Try to upload file(s) to server【${_item[$COL_INDEX_NAME]}】"
+    echo "$_read_prompt_start "Remote Server: " ${cyan}${_item[$COL_INDEX_NAME]}${normal} $_read_prompt_end"
+    echo ""
 
 
     # Update row frequency
@@ -365,9 +385,8 @@ function download () {
   if [[ "$_remotepath"x == "x" ]]; then 
     _templatepath="/tmp/error.log"
 
-    text_input "Remote Path: " _remotepath "$_templatepath"
-
     echo ""
+    text_input "Remote Path: " _remotepath "$_templatepath"
   fi
 
   # Invalid seq no, then choose again
@@ -384,7 +403,8 @@ function download () {
 
     local _item=(${SERVER_CONFIGS[$_seq]})
 
-    info "Try to download file(s) to server【${_item[$COL_INDEX_NAME]}】"
+    prompt "Selected Server: " "${_item[$COL_INDEX_NAME]}"
+    echo ""
 
     # Update row frequency
     _item[$COL_INDEX_FREQUENCY]=$((_item[$COL_INDEX_FREQUENCY] + 1))
@@ -492,5 +512,11 @@ function main () {
     fi
   fi
 }
+
+if ! exists $FZF_COMMAND; then 
+  echo ""
+  warn "Strongly suggest to install fzf. Check this link to install fzf: https://github.com/junegunn/fzf#installation"
+  echo ""
+fi;
 
 main "$1"
