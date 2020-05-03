@@ -12,10 +12,12 @@
  * 完美的支持使用 `fzf` 进行快速模糊查找.
  * 记录你的登录频率并以之排序.
  * 纯 Bash 脚本实现无其它运行环境依赖.
+ * 支持 scp 上传下载文件或文件夹.
 
 ## 依赖项
  * [expect](https://en.wikipedia.org/wiki/Expect)
  * [fzf](https://github.com/junegunn/fzf) *optional*
+ * [fd](https://github.com/sharkdp/fd) *optional*
 
 ## 使用
 

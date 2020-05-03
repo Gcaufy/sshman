@@ -12,10 +12,13 @@ A shell script to manage all of your SSH config. Works nicely with `fzf`.
  * Support fuzzy filter by using `fzf`.
  * Sort by your SSH login frequency.
  * Pure bash scripts.
+ * Support quick scp upload/download.
 
 ## Dependencies
+
  * [expect](https://en.wikipedia.org/wiki/Expect)
  * [fzf](https://github.com/junegunn/fzf) *optional*
+ * [fd](https://github.com/sharkdp/fd) *optional*
 
 ## Usage
 
@@ -56,10 +59,6 @@ After installed [bats](https://github.com/sstephenson/bats), then run the follow
 ```
 $ make test
 ```
-
-#### Todo List
-
-[ ] scp support 
 
 ## License
 
