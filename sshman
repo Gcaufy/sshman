@@ -431,14 +431,16 @@ function version () {
 
 # Show help
 function help () {
-  echo "Usage: $(basename $0) { list | edit | new | delete | help }" >&2
+  echo "Usage: $(basename $0) { list | edit | new | delete | upload | download | help }" >&2
   echo
-  echo "   list    [-l]           Show all server config list"
-  echo "   edit    [-e]           Update your server config"
-  echo "   new     [-n]           Add a new server config in your list"
-  echo "   delete  [-d]           Delete one of your server config"
-  echo "   help    [-h]           Show help"
-  echo "   version [-v]           Show version"
+  echo "   list      [-l]           Show all server config list"
+  echo "   edit      [-e]           Update your server config"
+  echo "   new       [-n]           Add a new server config in your list"
+  echo "   delete    [-r]           Delete one of your server config"
+  echo "   upload    [-u]           Upload a file or directory to on server"
+  echo "   download  [-d]           Download a file or directory from your server"
+  echo "   help      [-h]           Show help"
+  echo "   version   [-v]           Show version"
   echo
 }
 
