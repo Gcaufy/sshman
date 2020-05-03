@@ -1,4 +1,4 @@
-# SSH Man
+# SSH Man ![CI](https://github.com/Gcaufy/sshman/workflows/CI/badge.svg?branch=master)
 
 [中文](README-zh.md)
 
