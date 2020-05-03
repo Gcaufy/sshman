@@ -4,7 +4,7 @@ log() {
     printf '\033[0;34m%s\033[0m\n' "${1}"
 }
 info() {
-    printf "\e[34m[I]\e[0m %s\n" "${1}"
+    printf "\e[34m[⊚]\e[0m %s\n" "${1}"
 }
 error() {
     printf "\e[31m[✘]\e[0m %s\n" "${1}"

@@ -236,7 +236,118 @@ function login(){
           ${command}
       "
     fi
-    echo "Loggout【${_item[$COL_INDEX_NAME]}】"
+    echo ""
+    success "Loggout【${_item[$COL_INDEX_NAME]}】"
+  fi
+}
+# Upload file or directory to the server
+function upload () {
+  local _seq=$1
+  local _localpath=$2
+  local _remotepath=$3
+  local _dirflag=""
+
+  if [[ "$_localpath"x == "x" ]]; then 
+    _localpath=$(fd | fzf --no-preview --no-sort --prompt="Select a file or Directory to upload > ")
+
+    local _read_prompt_start=$'\e[32m?\e[39m\e[1m'
+    local _read_prompt_end=$'\e[22m'
+
+    cyan="$(tput setaf 6)"
+    normal="$(tput sgr0)"
+
+    echo ""
+    echo "$_read_prompt_start "Local Path: " ${cyan}${_localpath}${normal} $_read_prompt_end"
+  fi
+
+  if [[ "$_remotepath"x == "x" ]]; then 
+    _templatepath="/tmp/${_localpath}"
+
+    if [[ -d "${_localpath}" ]] ; then
+      _templatepath="$_templatepath"/
+      _templatepath=$(dirname "$_templatepath")"/"
+    fi
+
+    text_input "Remote Path: " _remotepath "$_templatepath"
+
+    echo ""
+  fi
+
+  # Invalid seq no, then choose again
+  if [[ $(validate_seq $_seq) == false ]]; then
+    _seq=$(choose "login" | xargs echo -n)
+    if ! [[ $(validate_seq $_seq) == false ]]; then
+      upload $_seq $_localpath $_remotepath
+    fi
+  else
+
+    if [[ -d "${_localpath}" ]] ; then
+      _dirflag="-r"
+      if ! [[ "$_localpath" == *"/" ]]; then
+        _localpath="$_localpath/"
+      fi
+    fi
+
+    local _mkdirp=$(dirname "$_remotepath")
+    if [[ "$_remotepath" == *"/" ]]; then
+      _mkdirp="$_remotepath"
+    fi
+
+    local _item=(${SERVER_CONFIGS[$_seq]})
+
+    info "Try to upload file(s) to server【${_item[$COL_INDEX_NAME]}】"
+
+
+    # Update row frequency
+    _item[$COL_INDEX_FREQUENCY]=$((_item[$COL_INDEX_FREQUENCY] + 1))
+    row_update ${_item[@]}
+
+    # Expert command
+    command="
+        expect {
+                \"*assword\" {set timeout 6000; send \$env(sshpasscode)\r\n; exp_continue ; sleep 3; }
+                \"*passphrase\" {set timeout 6000; send \$env(sshpasscode)\r\n'; exp_continue ; sleep 3; }
+                \"yes/no\" {send \"yes\n\"; exp_continue;}
+                \"$*\" {send \"echo Login Success\n\";}
+                \"Last\" {send \"echo Login Success\n\";}
+                \"Welcome\" {send \"echo Login Success\n\";}
+        }
+    ";
+    # Export it as an environment varible, to avoid $ escape.
+    export sshpasscode=${_item[$COL_INDEX_PASSCODE]}
+
+    local _type=${_item[$COL_INDEX_TYPE]}
+
+    if [[ "$_mkdirp"x == "."x || "$_mkdirp"x == "/"x ]]; then
+      _mkdirp="" 
+    fi
+    if ! [[ "$_type" == "Passcode" ]]; then
+      if [[ "$_mkdirp"x != ""x ]]; then
+        expect -c "
+            spawn 
+            ssh -p ${_item[$COL_INDEX_PORT]} -i ${_item[$COL_INDEX_PASSCODE]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]} ''mkdir -p ${_mkdirp}''
+            ${command}
+        "
+      fi
+      expect -c "
+          spawn 
+          scp ${_dirflag} -P ${_item[$COL_INDEX_PORT]} -i ${_item[$COL_INDEX_PASSCODE]} ${_localpath} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]}:${_remotepath}
+          ${command}
+      "
+    else
+      if [[ "$_mkdirp"x != ""x ]]; then
+        expect -c "
+            spawn ssh -p ${_item[$COL_INDEX_PORT]} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]} ''mkdir -p ${_mkdirp}''
+            ${command}
+        "
+      fi
+      expect -c "
+          spawn scp ${_dirflag} -P ${_item[$COL_INDEX_PORT]} ${_localpath} ${_item[$COL_INDEX_USER]}@${_item[$COL_INDEX_HOST]}:${_remotepath}
+          ${command}
+      "
+    fi
+    echo ""
+    success "Uploaded to 【${_item[$COL_INDEX_NAME]}】"
   fi
 }
 
@@ -283,6 +394,8 @@ function main () {
         delete
       elif [ 'help' == "$1" ] || [ '-h' == "$1" ]; then
         help
+      elif [ 'upload' == "$1" ] || [ '-u' == "$1" ]; then
+        upload 
       elif [ 'version' == "$1" ] || [ '-v' == "$1" ]; then
         version
       elif [ "$1"x == "x" ]; then
