@@ -1,0 +1,209 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: ~/sshman
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 123
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 12
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: SSH Man (Edit Demo)
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      margin: 5px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 2462
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                          \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..e/bash/sshman\a"
+  - delay: 32
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 1497
+    content: s
+  - delay: 160
+    content: "\bs "
+  - delay: 171
+    content: e
+  - delay: 201
+    content: d
+  - delay: 108
+    content: i
+  - delay: 163
+    content: t
+  - delay: 162
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;'~/sshman/sshman' edit\a\e]1;s\a"
+  - delay: 139
+    content: '  SEQ NO  SERVER NAME       SSH HOST          FREQUENCY'
+  - delay: 7
+    content: "\e[J\e[6n\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\e[28A\e[G\e[K\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[1B\r\e[;m                                                                                                                           \r\e[28A\r\e[;m                                                                                                                           \r\e[;1;38;5;110m[Edit] Choose the server>\e[m\e[;1m\e[m\e[;1m\e[m\r\e[26C\e[;m                                                                                                 \r\e[26C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/2\e[m\r\e[25C\r\e[26C\e[;m                                                                                                 \r\e[26C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       gcaufy@127.0.0.1  gcaufy@127.0.0.1  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m2       root@127.0.0.1    root@127.0.0.1    0\e[m\e[2A\r\e[25C"
+  - delay: 20
+    content: "\r\e[25C"
+  - delay: 2225
+    content: "\r\e[;m                                                                                                                           \r\e[;1;38;5;110m[Edit] Choose the server>\e[m\e[;1mr\e[m\e[;1m\e[m\r\e[27C\e[;m                                                                                                \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/2\e[m\r\e[26C\r\e[27C\e[;m                                                                                                \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mr\e[m\e[;1;38;5;254;48;5;236moot@127.0.0.1    root@127.0.0.1    0\e[m\e[1B\r\e[;m                                                                                                                           \r\e[2A\r\e[26C"
+  - delay: 100
+    content: "\r\e[;m                                                                                                                           \r\e[;1;38;5;110m[Edit] Choose the server>\e[m\e[;1mro\e[m\e[;1m\e[m\r\e[28C\e[;m                                                                                               \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\r\e[27C\r\e[28C\e[;m                                                                                               \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mr\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236mot@127.0.0.1    root@127.0.0.1    0\e[m\e[1A\r\e[27C"
+  - delay: 167
+    content: "\r\e[;m                                                                                                                           \r\e[;1;38;5;110m[Edit] Choose the server>\e[m\e[;1mroo\e[m\e[;1m\e[m\r\e[29C\e[;m                                                                                              \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\r\e[28C\r\e[29C\e[;m                                                                                              \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mr\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236mt@127.0.0.1    root@127.0.0.1    0\e[m\e[1A\r\e[28C"
+  - delay: 121
+    content: "\r\e[;m                                                                                                                           \r\e[;1;38;5;110m[Edit] Choose the server>\e[m\e[;1mroot\e[m\e[;1m\e[m\r\e[30C\e[;m                                                                                             \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\r\e[29C\r\e[30C\e[;m                                                                                             \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mr\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mt\e[m\e[;1;38;5;254;48;5;236m@127.0.0.1    root@127.0.0.1    0\e[m\e[1A\r\e[29C"
+  - delay: 860
+    content: "\r\e[A\e[J"
+  - delay: 8
+    content: "\e[32m?\e[39m\e[1m SSH Host: \e[1;30m(127.0.0.1)\e(B\e[m \e[22m\e[?12l\e[?25h"
+  - delay: 1481
+    content: "\e[123D\e[12C\e[36m127.0.0.1\e(B\e[m\e[K\r\n"
+  - delay: 5
+    content: "\e[123D\e[K\e(B\e[m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[32m?\e[39m\e[1m Login User: \e[1;30m(root)\e(B\e[m \e[22m"
+  - delay: 5
+    content: "\e[?12l\e[?25h"
+  - delay: 1268
+    content: "\e[123D\e[14C\e[36mroot\e(B\e[m\e[K\r\n"
+  - delay: 6
+    content: "\e[123D\e[K\e(B\e[m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[32m?\e[39m\e[1m Server Name: \e[1;30m(root@127.0.0.1)\e(B\e[m \e[22m"
+  - delay: 6
+    content: "\e[?12l\e[?25h"
+  - delay: 1009
+    content: "\e[?25lr\e[K\e[?12l\e[?25h"
+  - delay: 139
+    content: "\e[?25lo\e[K\e[?12l\e[?25h"
+  - delay: 152
+    content: "\e[?25lo\e[K\e[?12l\e[?25h"
+  - delay: 113
+    content: "\e[?25lt\e[K\e[?12l\e[?25h"
+  - delay: 109
+    content: "\e[?25l-\e[K\e[?12l\e[?25h"
+  - delay: 308
+    content: "\e[?25ll\e[K\e[?12l\e[?25h"
+  - delay: 187
+    content: "\e[?25lo\e[K\e[?12l\e[?25h"
+  - delay: 99
+    content: "\e[?25lc\e[K\e[?12l\e[?25h"
+  - delay: 59
+    content: "\e[?25la\e[K\e[?12l\e[?25h"
+  - delay: 75
+    content: "\e[?25ll\e[K\e[?12l\e[?25h"
+  - delay: 539
+    content: "\e[123D\e[15C\e[36mroot-local\e(B\e[m\e[K\r\n"
+  - delay: 6
+    content: "\e[123D\e[K\e(B\e[m\e[?12l\e[?25h\e[32m?\e[39m\e[1m Port: \e[1;30m(22)\e(B\e[m \e[22m"
+  - delay: 5
+    content: "\e[?12l\e[?25h"
+  - delay: 1111
+    content: "\e[123D\e[8C\e[36m22\e(B\e[m\e[K\r\n"
+  - delay: 6
+    content: "\e[123D\e[K\e(B\e[m\e[?12l\e[?25h"
+  - delay: 5
+    content: "\e[32m?\e[39m\e[1m Passcode: \e[1;30m(111)\e(B\e[m \e[22m"
+  - delay: 6
+    content: "\e[?12l\e[?25h"
+  - delay: 475
+    content: "\e[123D\e[12C\e[36m111\e(B\e[m\e[K\r\n"
+  - delay: 5
+    content: "\e[123D\e[K\e(B\e[m\e[?12l\e[?25h"
+  - delay: 33
+    content: "\r\n\e[32m[✔] Update config successfully\e[0m\r\n\r\n\e(B\e[m\e[?12l\e[?25h\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                          \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..e~/sshman\a"
+  - delay: 37
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 4299
+    content: "\e[?2004l\r\r\n"
