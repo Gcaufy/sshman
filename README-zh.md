@@ -14,6 +14,24 @@
  * 纯 Bash 脚本实现无其它运行环境依赖.
  * 支持 scp 上传下载文件或文件夹.
 
+## 演示
+
+### 如何登录服务器
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/login.gif" width="400" />
+
+### 如何管理服务器配置
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/edit.gif" width="400" />
+
+### 如何上传文件或者文件夹至服务器
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/upload.gif" width="400" />
+
+### 如何从服务器下载文件或文件夹
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/download.gif" width="400" />
+
 ## 依赖项
  * [expect](https://en.wikipedia.org/wiki/Expect)
  * [fzf](https://github.com/junegunn/fzf) *可选依赖*

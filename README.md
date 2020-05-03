@@ -14,6 +14,24 @@ A shell script to manage all of your SSH config. Works nicely with `fzf`.
  * Pure bash scripts.
  * Support quick scp upload/download.
 
+## Demo
+
+### How to login
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/login.gif" width="400" />
+
+### How to manage server config
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/edit.gif" width="400" />
+
+### How to upload a file or directory to the server
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/upload.gif" width="400" />
+
+### How to download file from a server 
+
+<img src="https://raw.githubusercontent.com/Gcaufy/sshman/master/asserts/download.gif" width="400" />
+
 ## Dependencies
 
  * [expect](https://en.wikipedia.org/wiki/Expect)
