@@ -16,8 +16,8 @@
 
 ## 依赖项
  * [expect](https://en.wikipedia.org/wiki/Expect)
- * [fzf](https://github.com/junegunn/fzf) *optional*
- * [fd](https://github.com/sharkdp/fd) *optional*
+ * [fzf](https://github.com/junegunn/fzf) *可选依赖*
+ * [fd](https://github.com/sharkdp/fd) *可选依赖*
 
 ## 使用
 
@@ -32,8 +32,12 @@ $ s help
 > 参考 [这里](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html).
 
 2. 安装 `fzf` (可选)
-> 这个是可选项，但强烈建议安装，提升使用体验。如果`fzf`没有安装，则无法使用快速模糊查找功能，只能通过输入配置序号进行服务器登陆。
+> 可选依赖，但强烈建议安装，提升使用体验。如果`fzf`没有安装，则无法使用上传和下载功能，同时也只能通过输入配置序号进行服务器登陆。
 参考 [安装指引](https://github.com/junegunn/fzf#installation).
+
+3. 安装 `fd` (可选依赖)
+> 可选依赖，但建议安装。使用 upload 功能时，会要求选择本地文件，如果检测未安装 `fd`，则使用 `find .` 命令代替.
+参数 [安装指引](https://github.com/sharkdp/fd#installation)
 
 ### 安装 sshman
 

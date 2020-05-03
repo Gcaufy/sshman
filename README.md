@@ -33,8 +33,12 @@ $ s help
 > See [here](http://www.linuxfromscratch.org/blfs/view/svn/general/expect.html).
 
 2. Install `fzf` (optional)
-> It's optional, but strongly suggested. If `fzf` is not installed, then you have to select a server by typing its sequence number.
+> It's optional, but strongly suggested. If `fzf` is not installed, you can not use upload and donwload command. And also you have to select a server by typing its sequence number(which I think it's inefficient). 
 See [Installation](https://github.com/junegunn/fzf#installation).
+
+3. Install `fd` (optional)
+> It's optional, If `fd` is not installed, in upload command, when you select local files, it's using `find .`.
+See [Installation](https://github.com/sharkdp/fd#installation)
 
 ### Install sshman
 
