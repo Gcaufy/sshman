@@ -1,0 +1,191 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: ~/sshman
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 66
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 18
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: SSH Man (Upload Demo) 
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      margin: 5px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 2115
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                 \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 28
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 553
+    content: s
+  - delay: 172
+    content: "\bs "
+  - delay: 214
+    content: u
+  - delay: 112
+    content: p
+  - delay: 268
+    content: l
+  - delay: 194
+    content: o
+  - delay: 130
+    content: a
+  - delay: 64
+    content: d
+  - delay: 149
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;'~/sshman' upload\a\e]1;s\a"
+  - delay: 132
+    content: "\e[J\e[6n\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\e[13A\e[G\e[K\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[13A\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1m\e[m\e[;1m\e[m\r\e[40C\e[;m                          \r\e[40C\e[;1;38;5;110m < \e[m\e[;38;5;144m9/9\e[m\r\e[39C\r\e[40C\e[;m                          \r\e[40C\e[;1;38;5;110m < \e[m\e[;38;5;144m9/9\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236mconfig.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;medit.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;medit.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mlogin.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mlogin.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mnew.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mnew.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;msshman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;msshman.yml\e[m\e[9A\r\e[39C"
+  - delay: 25
+    content: "\r\e[39C"
+  - delay: 1610
+    content: "\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1ms\e[m\e[;1m\e[m\r\e[41C\e[;m                         \r\e[41C\e[;1;38;5;110m < \e[m\e[;38;5;144m9/9\e[m\r\e[40C\r\e[41C\e[;m                         \r\e[41C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236mshman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m\e[m\e[;38;5;108ms\e[m\e[;mshman.yml\e[m\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[9A\r\e[40C"
+  - delay: 198
+    content: "\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1mss\e[m\e[;1m\e[m\r\e[42C\e[;m                        \r\e[42C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\r\e[41C\r\e[42C\e[;m                        \r\e[42C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236mhman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m\e[m\e[;38;5;108ms\e[m\e[;m\e[m\e[;38;5;108ms\e[m\e[;mhman.yml\e[m\e[2A\r\e[41C"
+  - delay: 131
+    content: "\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1mssh\e[m\e[;1m\e[m\r\e[43C\e[;m                       \r\e[43C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\r\e[42C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mh\e[m\e[;1;38;5;254;48;5;236mman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m\e[m\e[;38;5;108ms\e[m\e[;m\e[m\e[;38;5;108ms\e[m\e[;m\e[m\e[;38;5;108mh\e[m\e[;mman.yml\e[m\e[2A\r\e[43C\e[;m                       \r\e[43C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\r\e[42C"
+  - delay: 984
+    content: "\r\e[J"
+  - delay: 9
+    content: "\e[J\e[6n\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\e[13A\e[G\e[K\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[13A\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1m\e[m\e[;1m\e[m\r\e[40C\e[;m                          \r\e[40C\e[;1;38;5;110m < \e[m\e[;38;5;144m9/9\e[m\r\e[39C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236mconfig.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;medit.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;medit.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mlogin.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mlogin.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mnew.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;mnew.yml\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;msshman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;msshman.yml\e[m\e[9A\r\e[40C\e[;m                          \r\e[40C\e[;1;38;5;110m < \e[m\e[;38;5;144m9/9\e[m\r\e[39C"
+  - delay: 22
+    content: "\r\e[39C"
+  - delay: 1884
+    content: "\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1ms\e[m\e[;1m\e[m\r\e[41C\e[;m                         \r\e[41C\e[;1;38;5;110m < \e[m\e[;38;5;144m9/9\e[m\r\e[40C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236mshman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m\e[m\e[;38;5;108ms\e[m\e[;mshman.yml\e[m\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[9A\r\e[41C\e[;m                         \r\e[41C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\r\e[40C"
+  - delay: 242
+    content: "\r\e[;m                                                                  \r\e[;1;38;5;110mSelect a file or Directory to upload > \e[m\e[;1mss\e[m\e[;1m\e[m\r\e[42C\e[;m                        \r\e[42C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\r\e[41C\r\e[42C\e[;m                        \r\e[42C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/9\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236mhman.gif\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m\e[m\e[;38;5;108ms\e[m\e[;m\e[m\e[;38;5;108ms\e[m\e[;mhman.yml\e[m\e[2A\r\e[41C"
+  - delay: 1173
+    content: "\r\e[J\r\n\e[32m?\e[39m\e[1m Local Path:  \e[36msshman.gif\e(B\e[m \e[22m\r\n\e[32m?\e[39m\e[1m Remote Path:  \e[1;30m(/tmp/sshman.gif)\e(B\e[m \e[22m"
+  - delay: 5
+    content: "\e[?12l\e[?25h"
+  - delay: 1637
+    content: "\e[66D\e[16C\e[36m/tmp/sshman.gif\e(B\e[m\e[K\r\n"
+  - delay: 5
+    content: "\e[66D\e[K\e(B\e[m\e[?12l\e[?25h"
+  - delay: 11
+    content: '  SEQ NO  SERVER NAME          SSH HOST                FREQUENCY'
+  - delay: 7
+    content: "\e[J\e[6n\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\e[13A\e[G\e[K\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[13A\r\e[;m                                                                  \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1m\e[m\e[;1m\e[m\r\e[27C\e[;m                                       \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\r\e[26C\r\e[27C\e[;m                                       \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       madcoder             gcaufy@192.168.xxx.xxx  2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m2       root-local           root@127.0.0.1          0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[3A\r\e[26C"
+  - delay: 24
+    content: "\r\e[26C"
+  - delay: 1433
+    content: "\r\e[A\e[J"
+  - delay: 11
+    content: "\e[32m?\e[39m\e[1m Remote Server:  \e[36mmadcoder\e(B\e[m \e[22m\r\n\r\n"
+  - delay: 41
+    content: "spawn ssh -p 22 gcaufy@192.168.xxx.xxx ''mkdir -p /tmp''\r\r\r\n"
+  - delay: 212
+    content: "gcaufy@192.168.xxx.xxx's password: \r\r\n"
+  - delay: 706
+    content: "spawn scp -P 22 sshman.gif gcaufy@192.168.xxx.xxx:/tmp/sshman.gif\r\r\r\n"
+  - delay: 198
+    content: "gcaufy@192.168.xxx.xxx's password: \r\r\n"
+  - delay: 719
+    content: "\rsshman.gif                        0%    0     0.0KB/s   --:-- ETA"
+  - delay: 103
+    content: "\rsshman.gif                      100%  341KB   3.2MB/s   00:00    \r\r\n"
+  - delay: 13
+    content: "\r\n\e[32m[✔] Uploaded to 【madcoder】\e[0m\r\n\r\n\e(B\e[m\e[?12l\e[?25h\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                 \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 36
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 2428
+    content: "\e[?2004l\r\r\n"

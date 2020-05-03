@@ -1,0 +1,239 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: ~/sshman
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 66
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 18
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: SSH Man (Donwload Demo) 
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      margin: 5px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 2052
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                 \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 30
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 710
+    content: l
+  - delay: 83
+    content: "\bls"
+  - delay: 131
+    content: ' '
+  - delay: 397
+    content: '|'
+  - delay: 144
+    content: ' '
+  - delay: 185
+    content: g
+  - delay: 108
+    content: r
+  - delay: 68
+    content: e
+  - delay: 247
+    content: p
+  - delay: 200
+    content: ' '
+  - delay: 143
+    content: .
+  - delay: 214
+    content: l
+  - delay: 182
+    content: o
+  - delay: 111
+    content: g
+  - delay: 196
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;ls -G | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} .log\a\e]1;ls\a"
+  - delay: 5
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                 \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 37
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;31m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 2572
+    content: s
+  - delay: 312
+    content: "\bs "
+  - delay: 685
+    content: d
+  - delay: 96
+    content: o
+  - delay: 135
+    content: w
+  - delay: 120
+    content: 'n'
+  - delay: 191
+    content: l
+  - delay: 167
+    content: o
+  - delay: 99
+    content: a
+  - delay: 61
+    content: d
+  - delay: 150
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;'~/sshman' download\a\e]1;s\a"
+  - delay: 125
+    content: "\r\n\e[32m?\e[39m\e[1m Remote Path:  \e[1;30m(/tmp/error.log)\e(B\e[m \e[22m\e[?12l\e[?25h"
+  - delay: 1322
+    content: "\e[66D\e[16C\e[36m/tmp/error.log\e(B\e[m\e[K\r\n"
+  - delay: 5
+    content: "\e[66D\e[K\e(B\e[m\e[?12l\e[?25h"
+  - delay: 10
+    content: '  SEQ NO  SERVER NAME          SSH HOST                FREQUENCY'
+  - delay: 6
+    content: "\e[J\e[6n"
+  - delay: 10
+    content: "\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\e[13A\e[G\e[K\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[1B\r\e[;m                                                                  \r\e[13A\r\e[;m                                                                  \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1m\e[m\e[;1m\e[m\r\e[27C\e[;m                                       \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\r\e[26C\r\e[27C\e[;m                                       \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       madcoder             gcaufy@192.168.xxx.xxx  3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m2       root-local           root@127.0.0.1          0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[3A\r\e[26C"
+  - delay: 23
+    content: "\r\e[26C"
+  - delay: 1997
+    content: "\r\e[A\e[J"
+  - delay: 7
+    content: "\e[32m?\e[39m\e[1m Selected Server:  \e[36mmadcoder\e(B\e[m \e[22m\r\n\r\n"
+  - delay: 42
+    content: "spawn scp -P 22 gcaufy@192.168.xxx.xxx:/tmp/error.log ./\r\r\r\n"
+  - delay: 197
+    content: "gcaufy@192.168.xxx.xxx's password: \r\r\n"
+  - delay: 730
+    content: "\rerror.log                         0%    0     0.0KB/s   --:-- ETA"
+  - delay: 12
+    content: "\rerror.log                       100%    6     0.5KB/s   00:00    \r\r\n"
+  - delay: 14
+    content: "\r\n\e[32m[✔] Downloaded file from 【madcoder】\e[0m\r\n\r\n\e(B\e[m\e[?12l\e[?25h\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                 \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 37
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 1281
+    content: l
+  - delay: 107
+    content: "\bls"
+  - delay: 157
+    content: ' '
+  - delay: 310
+    content: '|'
+  - delay: 106
+    content: ' '
+  - delay: 204
+    content: g
+  - delay: 115
+    content: r
+  - delay: 40
+    content: e
+  - delay: 135
+    content: p
+  - delay: 150
+    content: ' '
+  - delay: 249
+    content: .
+  - delay: 202
+    content: l
+  - delay: 177
+    content: o
+  - delay: 104
+    content: g
+  - delay: 231
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;ls -G | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} .log\a\e]1;ls\a"
+  - delay: 5
+    content: "error\e[01;31m\e[K.log\e[m\e[K\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                 \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 38
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 2768
+    content: "\e[?2004l\r\r\n"

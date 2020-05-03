@@ -1,0 +1,251 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: ~/sshman
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 66
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 18
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: SSH Man (Login Demo) 
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      margin: 5px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 2071
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                        \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 29
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
+  - delay: 1678
+    content: s
+  - delay: 379
+    content: "\e[?1l\e>\e[?2004l\r\r\n\e]2;'~/sshman/sshman'\a\e]1;s\a"
+  - delay: 126
+    content: '  SEQ NO  SERVER NAME          SSH HOST                FREQUENCY'
+  - delay: 6
+    content: "\e[J\e[6n\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\n\e[G\e[13A\e[G\e[K\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[13A\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1m\e[m\e[;1m\e[m\r\e[27C\e[;m                              \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\r\e[26C\r\e[27C\e[;m                              \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-local           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m2       madcoder             gcaufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[3A\r\e[26C"
+  - delay: 21
+    content: "\r\e[26C"
+  - delay: 1679
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mg\e[m\e[;1m\e[m\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\r\e[27C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236mcaufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;mcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[1B\r\e[;m                                                         \r\e[3A\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[27C"
+  - delay: 228
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgc\e[m\e[;1m\e[m\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[28C\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236maufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;maufy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[28C"
+  - delay: 78
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgca\e[m\e[;1m\e[m\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[29C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236mufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;mufy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[29C"
+  - delay: 76
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcau\e[m\e[;1m\e[m\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[30C\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236mfy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108mu\e[m\e[;mfy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[30C"
+  - delay: 192
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcauf\e[m\e[;1m\e[m\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[31C\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236my@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108mu\e[m\e[;m\e[m\e[;38;5;108mf\e[m\e[;my-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[31C"
+  - delay: 32
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy\e[m\e[;1m\e[m\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[32C\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236my\e[m\e[;1;38;5;254;48;5;236m@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108mu\e[m\e[;m\e[m\e[;38;5;108mf\e[m\e[;m\e[m\e[;38;5;108my\e[m\e[;m-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[32C"
+  - delay: 1650
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy1\e[m\e[;1m\e[m\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[33C\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-local-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236my\e[m\e[;1;38;5;254;48;5;236m@\e[m\e[;1;38;5;151;48;5;236m1\e[m\e[;1;38;5;254;48;5;236m27.0.0.1        0\e[m\e[1B\r\e[;m                                                         \r\e[2A\r\e[33C"
+  - delay: 118
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy12\e[m\e[;1m\e[m\r\e[35C\e[;m                      \r\e[35C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[34C\r\e[35C\e[;m                      \r\e[35C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-local-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236my\e[m\e[;1;38;5;254;48;5;236m@\e[m\e[;1;38;5;151;48;5;236m1\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236m2\e[m\e[;1;38;5;254;48;5;236m7.0.0.1        0\e[m\e[1A\r\e[34C"
+  - delay: 699
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy128\e[m\e[;1m\e[m\r\e[36C\e[;m                     \r\e[36C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[35C\r\e[36C\e[;m                     \r\e[36C\e[;1;38;5;110m < \e[m\e[;38;5;144m0/3\e[m\e[1B\r\e[;m                                                         \r\e[1A\r\e[35C"
+  - delay: 589
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy12\e[m\e[;1m\e[m\r\e[35C\e[;m                      \r\e[35C\e[;1;38;5;110m < \e[m\e[;38;5;144m0/3\e[m\r\e[34C\r\e[35C\e[;m                      \r\e[35C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-local-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236my\e[m\e[;1;38;5;254;48;5;236m@\e[m\e[;1;38;5;151;48;5;236m1\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236m2\e[m\e[;1;38;5;254;48;5;236m7.0.0.1        0\e[m\e[1A\r\e[34C"
+  - delay: 1105
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy1\e[m\e[;1m\e[m\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[33C\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-local-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236my\e[m\e[;1;38;5;254;48;5;236m@\e[m\e[;1;38;5;151;48;5;236m1\e[m\e[;1;38;5;254;48;5;236m27.0.0.1        0\e[m\e[1A\r\e[33C"
+  - delay: 156
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcaufy\e[m\e[;1m\e[m\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[32C\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236my\e[m\e[;1;38;5;254;48;5;236m@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108mu\e[m\e[;m\e[m\e[;38;5;108mf\e[m\e[;m\e[m\e[;38;5;108my\e[m\e[;m-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[32C"
+  - delay: 138
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcauf\e[m\e[;1m\e[m\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[31C\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mf\e[m\e[;1;38;5;254;48;5;236my@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108mu\e[m\e[;m\e[m\e[;38;5;108mf\e[m\e[;my-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[31C"
+  - delay: 154
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgcau\e[m\e[;1m\e[m\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[30C\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mu\e[m\e[;1;38;5;254;48;5;236mfy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108mu\e[m\e[;mfy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[30C"
+  - delay: 146
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgca\e[m\e[;1m\e[m\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[29C\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236mufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;mufy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[29C"
+  - delay: 154
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mgc\e[m\e[;1m\e[m\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[28C\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236maufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;maufy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[28C"
+  - delay: 140
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mg\e[m\e[;1m\e[m\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[27C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       madcoder             \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236mcaufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       \e[m\e[;38;5;108mg\e[m\e[;mcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[27C"
+  - delay: 134
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1m\e[m\e[;1m\e[m\r\e[27C\e[;m                              \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[26C\r\e[27C\e[;m                              \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-local           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m2       madcoder             gcaufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[3A\r\e[26C"
+  - delay: 340
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1ml\e[m\e[;1m\e[m\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\r\e[27C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236mocal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;mocal-server  gcaufy@127.0.0.1        0\e[m\e[1B\r\e[;m                                                         \r\e[3A\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[27C"
+  - delay: 195
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlo\e[m\e[;1m\e[m\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[28C\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236mcal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;mcal-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[28C"
+  - delay: 72
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mloc\e[m\e[;1m\e[m\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[29C\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;mal-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[29C"
+  - delay: 81
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mloca\e[m\e[;1m\e[m\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[30C\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236ml           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;ml-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[30C"
+  - delay: 95
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocal\e[m\e[;1m\e[m\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[31C\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108ml\e[m\e[;m-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[31C"
+  - delay: 1440
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocals\e[m\e[;1m\e[m\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[32C\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m-\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236merver  gcaufy@127.0.0.1        0\e[m\e[1B\r\e[;m                                                         \r\e[2A\r\e[32C"
+  - delay: 112
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocalse\e[m\e[;1m\e[m\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[33C\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m-\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236me\e[m\e[;1;38;5;254;48;5;236mrver  gcaufy@127.0.0.1        0\e[m\e[1A\r\e[33C"
+  - delay: 72
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocalser\e[m\e[;1m\e[m\r\e[35C\e[;m                      \r\e[35C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[34C\r\e[35C\e[;m                      \r\e[35C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m-\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236me\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mr\e[m\e[;1;38;5;254;48;5;236mver  gcaufy@127.0.0.1        0\e[m\e[1A\r\e[34C"
+  - delay: 1907
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocalse\e[m\e[;1m\e[m\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[33C\r\e[34C\e[;m                       \r\e[34C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m-\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236me\e[m\e[;1;38;5;254;48;5;236mrver  gcaufy@127.0.0.1        0\e[m\e[1A\r\e[33C"
+  - delay: 147
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocals\e[m\e[;1m\e[m\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[32C\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m-\e[m\e[;1;38;5;151;48;5;236ms\e[m\e[;1;38;5;254;48;5;236merver  gcaufy@127.0.0.1        0\e[m\e[1A\r\e[32C"
+  - delay: 132
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocal\e[m\e[;1m\e[m\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[31C\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;m\e[m\e[;38;5;108ml\e[m\e[;m-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[31C"
+  - delay: 130
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mloca\e[m\e[;1m\e[m\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[30C\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236ml           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;m\e[m\e[;38;5;108ma\e[m\e[;ml-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[30C"
+  - delay: 273
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mloc\e[m\e[;1m\e[m\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[29C\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;mal-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[29C"
+  - delay: 1190
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocg\e[m\e[;1m\e[m\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[30C\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236mcaufy@127.0.0.1        0\e[m\e[1B\r\e[;m                                                         \r\e[2A\r\e[30C"
+  - delay: 266
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocgc\e[m\e[;1m\e[m\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[31C\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236maufy@127.0.0.1        0\e[m\e[1A\r\e[31C"
+  - delay: 135
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocgca\e[m\e[;1m\e[m\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[32C\r\e[33C\e[;m                        \r\e[33C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236mufy@127.0.0.1        0\e[m\e[1A\r\e[32C"
+  - delay: 838
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocgc\e[m\e[;1m\e[m\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[31C\r\e[32C\e[;m                         \r\e[32C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236maufy@127.0.0.1        0\e[m\e[1A\r\e[31C"
+  - delay: 152
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlocg\e[m\e[;1m\e[m\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[30C\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m3       gcaufy-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal-server  \e[m\e[;1;38;5;151;48;5;236mg\e[m\e[;1;38;5;254;48;5;236mcaufy@127.0.0.1        0\e[m\e[1A\r\e[31C\e[;m                          \r\e[31C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[30C"
+  - delay: 174
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mloc\e[m\e[;1m\e[m\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[29C\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mc\e[m\e[;1;38;5;254;48;5;236mal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;m\e[m\e[;38;5;108mc\e[m\e[;mal-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[29C"
+  - delay: 123
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mlo\e[m\e[;1m\e[m\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[28C\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236mo\e[m\e[;1;38;5;254;48;5;236mcal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;m\e[m\e[;38;5;108mo\e[m\e[;mcal-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[28C"
+  - delay: 148
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1ml\e[m\e[;1m\e[m\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[27C\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-\e[m\e[;1;38;5;151;48;5;236ml\e[m\e[;1;38;5;254;48;5;236mocal           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-\e[m\e[;38;5;108ml\e[m\e[;mocal-server  gcaufy@127.0.0.1        0\e[m\e[2A\r\e[27C"
+  - delay: 342
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1m\e[m\e[;1m\e[m\r\e[27C\e[;m                              \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m2/3\e[m\r\e[26C\r\e[27C\e[;m                              \r\e[27C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m1       root-local           root@127.0.0.1          2\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m2       madcoder             gcaufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;1;38;5;161;48;5;236m \e[m\e[;m \e[;m3       gcaufy-local-server  gcaufy@127.0.0.1        0\e[m\e[3A\r\e[26C"
+  - delay: 639
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mm\e[m\e[;1m\e[m\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m3/3\e[m\r\e[27C\r\e[28C\e[;m                             \r\e[28C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mm\e[m\e[;1;38;5;254;48;5;236madcoder             gcaufy@192.168.xxx.xxx  0\e[m\e[1B\r\e[;m                                                         \r\e[1B\r\e[;m                                                         \r\e[3A\r\e[27C"
+  - delay: 103
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mma\e[m\e[;1m\e[m\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[28C\r\e[29C\e[;m                            \r\e[29C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mm\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236mdcoder             gcaufy@192.168.xxx.xxx  0\e[m\e[1A\r\e[28C"
+  - delay: 56
+    content: "\r\e[;m                                                         \r\e[;1;38;5;110m[Login] Choose the server>\e[m\e[;1mmad\e[m\e[;1m\e[m\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\r\e[29C\r\e[30C\e[;m                           \r\e[30C\e[;1;38;5;110m < \e[m\e[;38;5;144m1/3\e[m\e[1B\r\e[;1;38;5;161;48;5;236m>\e[m\e[;1;38;5;168;48;5;236m \e[m\e[;1;38;5;254;48;5;236m2       \e[m\e[;1;38;5;151;48;5;236mm\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236ma\e[m\e[;1;38;5;254;48;5;236m\e[m\e[;1;38;5;151;48;5;236md\e[m\e[;1;38;5;254;48;5;236mcoder             gcaufy@192.168.xxx.xxx  0\e[m\e[1A\r\e[29C"
+  - delay: 1501
+    content: "\r\e[A\e[J"
+  - delay: 9
+    content: "\r\n\e[32m?\e[39m\e[1m Login Server:  \e[36mmadcoder\e(B\e[m \e[22m\r\n\r\n"
+  - delay: 42
+    content: "spawn ssh -p 22 gcaufy@192.168.xxx.xxx\r\r\r\n"
+  - delay: 199
+    content: "gcaufy@192.168.xxx.xxx's password: \r\r\n"
+  - delay: 621
+    content: "Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-54-generic x86_64)\r\r\n\r\r\n * Documentation:  https://help.ubuntu.com\r\r\n * Management:     https://landscape.canonical.com\r\r\n * Support:        https://ubuntu.com/advantage\r\r\n"
+  - delay: 8
+    content: "\r\n  System information as of Sun May  3 22:03:40 CST 2020\r\n\r\n  System load:  0.01               Processes:              127\r\n  Usage of /:   13.6% of 49.15GB   Users logged in:        0\r\n  Memory usage: 48%                IP address for eth0:    xx.xxx.xx.xx\r\n  Swap usage:   18%                IP address for docker0: 172.17.0.1\r\n\r\n * MicroK8s 1.15 is out! Thanks to all 40 contributors, you get the latest\r\n   greatest upstream Kubernetes in a single package.\r\n\r\n     https://github.com/ubuntu/microk8s\r\n\r\n * Canonical Livepatch is available for installation.\r\n   - Reduce system reboots and improve kernel security. Activate at:\r\n     https://ubuntu.com/livepatch\r\nFailed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings\r\n\r\n\r\nLast login: Sun May  3 22:01:32 2020 from xxx.xx.xx.xx\r\r\n"
+  - delay: 381
+    content: "\e]0;gcaufy@ubuntu: ~\a\e[01;32mgcaufy@ubuntu\e[00m:\e[01;34m~\e[00m$ echo Login Success\r\nLogin Success\r\n\e]0;gcaufy@ubuntu: ~\a\e[01;32mgcaufy@ubuntu\e[00m:\e[01;34m~\e[00m$ "
+  - delay: 622
+    content: c
+  - delay: 641
+    content: l
+  - delay: 148
+    content: e
+  - delay: 133
+    content: a
+  - delay: 99
+    content: r
+  - delay: 160
+    content: "\r\n\e[3J\e[H\e[2J\e]0;gcaufy@ubuntu: ~\a\e[01;32mgcaufy@ubuntu\e[00m:\e[01;34m~\e[00m$ "
+  - delay: 180
+    content: e
+  - delay: 252
+    content: x
+  - delay: 141
+    content: i
+  - delay: 152
+    content: t
+  - delay: 201
+    content: "\r\nlogout\r\nConnection to 192.168.xxx.xxx closed.\r\r\n\r\n\e[32m[✔] Loggout【madcoder】\e[0m\r\n\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                        \r \r\e]2;gcaufy@MacPro: ~/sshman\a\e]1;..shman\a"
+  - delay: 37
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[01;32m➜  \e[36m~/sshman\e[00m \e[01;34mgit:(\e[31mmaster\e[34m) \e[33m✗\e[00m \r\n $ \e[K\e[?1h\e=\e[?2004h"
