@@ -280,8 +280,6 @@ function upload () {
       echo ""
       _localpath=$(find . | $FZF_COMMAND $FZF_SSHMAN_OPTION --prompt='Select a file or Directory to upload > ')
     fi
-    _localpath=$($FD_COMMAND $FD_SSHMAN_OPTION | $FZF_COMMAND $FZF_SSHMAN_OPTION --prompt='Select a file or Directory to upload > ')
-
     local _read_prompt_start=$'\e[32m?\e[39m\e[1m'
     local _read_prompt_end=$'\e[22m'
 
